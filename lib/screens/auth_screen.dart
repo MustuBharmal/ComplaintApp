@@ -38,6 +38,7 @@ class _AuthScreenState extends State<AuthScreen>
   String selectedState = '';
   String? selectedDist;
   List<StateModel> states = [];
+  bool isObscure = true;
 
   @override
   void initState() {
@@ -136,6 +137,7 @@ class _AuthScreenState extends State<AuthScreen>
           'phoneNo': _phoneNoController.text,
           'dist': selectedDist!.toLowerCase(),
           'state': selectedState.toLowerCase(),
+          'role': 'citizen',
         });
       } on FirebaseAuthException catch (error) {
         if (error.code == 'email-already-in-use') {
@@ -409,13 +411,15 @@ class _AuthScreenState extends State<AuthScreen>
               return null;
             },
             controller: _passwordController,
-            obscureText: true,
+            obscureText: isObscure,
             decoration: InputDecoration(
               suffixIcon: IconButton(
                   onPressed: () {
-                    _passwordController.clear();
+                    setState(() {
+                      isObscure = !isObscure;
+                    });
                   },
-                  icon: const Icon(Icons.cancel)),
+                  icon:   Icon(isObscure ? Icons.visibility : Icons.visibility_off)),
               label: const Text("Password"),
               hintText: "Enter the password",
               border: OutlineInputBorder(

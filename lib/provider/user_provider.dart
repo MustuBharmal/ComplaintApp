@@ -5,13 +5,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '../constants/strings.dart';
-import '../models/admin_model.dart';
 import '../models/states_dist_model.dart';
 import '../models/user_model.dart';
 
 class UserProvider with ChangeNotifier {
   UsersModel? userModel;
-  AdminModel? adminModel;
 
   void getUserData() async {
     await db
@@ -28,27 +26,9 @@ class UserProvider with ChangeNotifier {
     );
     notifyListeners();
   }
-
-  Future<void> getOfficerData() async {
-    await db
-        .collection("officers")
-        .where('dist', isEqualTo: userModel!.dist)
-        .get()
-        .then(
-      (querySnapshot) {
-        if (querySnapshot.docs.isNotEmpty) {
-          adminModel = AdminModel.fromSnapshot(querySnapshot.docs.first);
-        }
-      },
-    );
-
-    notifyListeners();
-  }
-
   void logout() async {
     await FirebaseAuth.instance.signOut();
     userModel = null;
-    adminModel = null;
     notifyListeners();
   }
 

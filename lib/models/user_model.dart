@@ -5,7 +5,7 @@ class UsersModel {
   String? phoneNo;
   String? dist;
   String? state;
-
+String? role;
   UsersModel({
     this.uid,
     this.name,
@@ -13,6 +13,7 @@ class UsersModel {
     this.phoneNo,
     this.dist,
     this.state,
+    this.role,
   });
 
   factory UsersModel.fromJson(Map<String, dynamic> json) {
@@ -22,6 +23,7 @@ class UsersModel {
     String? phoneNo = json['phoneNo'];
     String? dist = json['dist'];
     String? state = json['state'];
+    String? role = json['role'];
     return UsersModel(
       uid: uid,
       name: name,
@@ -29,6 +31,7 @@ class UsersModel {
       phoneNo: phoneNo,
       dist: dist,
       state: state,
+        role:role,
     );
   }
 
@@ -40,6 +43,7 @@ class UsersModel {
     data['phoneNo'] = phoneNo;
     data['dist'] = dist;
     data['state'] = state;
+    data['role'] = role;
     return data;
   }
 }
