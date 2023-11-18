@@ -64,7 +64,7 @@ class _HelpingBotState extends State<HelpingBot> {
       print('Message is empty');
     } else {
       setState(
-        () {
+            () {
           addMessage(Message(text: DialogText(text: [text])), true);
         },
       );
