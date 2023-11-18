@@ -1,6 +1,10 @@
-import 'package:complain_app/constants/global_variables.dart';
+
 import 'package:flutter/material.dart';
 
+import 'global_variables.dart';
+Color getColor(Set<MaterialState> states) {
+  return Colors.black;
+}
 final ThemeData customTheme = ThemeData(
   colorScheme: const ColorScheme.light(
     primary: primaryColor,
@@ -14,12 +18,12 @@ final ThemeData customTheme = ThemeData(
     color: Color(0xffA0E9FF),
   ),
   textTheme:  const TextTheme(
-    headlineSmall: TextStyle(color: Colors.white),
-    titleLarge: TextStyle(color: Colors.white),
+    headlineSmall: TextStyle(color: Colors.black),
+    titleLarge: TextStyle(color: Colors.black),
     bodyMedium: TextStyle(color: Colors.black),
-    labelLarge: TextStyle(color: Colors.white),
+    labelLarge: TextStyle(color: Colors.black),
   ),
-textButtonTheme: TextButtonThemeData(style: TextButton.styleFrom(foregroundColor: Colors.black),),
+  textButtonTheme: TextButtonThemeData(style: TextButton.styleFrom(foregroundColor: Colors.black),),
   elevatedButtonTheme: ElevatedButtonThemeData(
     style: ButtonStyle(
       padding: MaterialStateProperty.all<EdgeInsetsGeometry>(
@@ -30,6 +34,8 @@ textButtonTheme: TextButtonThemeData(style: TextButton.styleFrom(foregroundColor
           borderRadius: BorderRadius.circular(20.0),
         ),
       ),
+      foregroundColor: MaterialStateProperty.resolveWith(getColor),
+      backgroundColor: MaterialStateProperty.all(const Color(0xffA0E9FF)),
     ),
   ),
   inputDecorationTheme: InputDecorationTheme(
@@ -40,19 +46,19 @@ textButtonTheme: TextButtonThemeData(style: TextButton.styleFrom(foregroundColor
           borderRadius: BorderRadius.circular(19),
           borderSide: const BorderSide(color: Colors.black)),
       focusedBorder:  OutlineInputBorder(
-        borderSide: const BorderSide(width: 2, color: bgColor),
+          borderSide: const BorderSide(width: 2, color: bgColor),
           borderRadius: BorderRadius.circular(15)
       ),
       labelStyle: const TextStyle(
         color:Colors.black,
       )),
   floatingActionButtonTheme:
-      const FloatingActionButtonThemeData(backgroundColor: bgColor),
+  const FloatingActionButtonThemeData(backgroundColor: bgColor),
 );
 
 // fillColor: Colors.grey.withOpacity(0.1),
 abstract class ThemeStyles {
   static ButtonStyle whiteTextButtonStyle = ButtonStyle(
-    foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
+    foregroundColor: MaterialStateProperty.all<Color>(Colors.black),
   );
 }

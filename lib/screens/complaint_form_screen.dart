@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:complain_app/models/complaint_model.dart';
 import 'package:complain_app/provider/complaint_provider.dart';
 import 'package:complain_app/provider/user_provider.dart';
+import 'package:complain_app/widgets/show_dialog.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
@@ -85,15 +86,19 @@ class _ComplaintFormScreenState extends State<ComplaintFormScreen> {
         probName: _probName.text,
         probDsc: _probDsc.text,
         city: _cityName.text,
-        state: Provider.of<UserProvider>(context).userModel!.state!,
+        state:
+            Provider.of<UserProvider>(context, listen: false).userModel!.state!,
         off: selectedOff!.name,
         subOff: selectedSubOff!,
-        dist: Provider.of<UserProvider>(context).userModel!.dist!,
+        dist:
+            Provider.of<UserProvider>(context, listen: false).userModel!.dist!,
         status: 'pending',
         imgUrl: _editedComplaint.imgUrl,
         userId: FirebaseAuth.instance.currentUser!.uid,
-        complaintId:
-            Provider.of<UserProvider>(context).userModel!.dist!.substring(0, 3),
+        complaintId: Provider.of<UserProvider>(context, listen: false)
+            .userModel!
+            .dist!
+            .substring(0, 3),
       );
       await Provider.of<ComplaintProvider>(context, listen: false)
           .addComplaintData(_editedComplaint);
@@ -101,7 +106,22 @@ class _ComplaintFormScreenState extends State<ComplaintFormScreen> {
     setState(() {
       _isLoading = false;
     });
-    Navigator.of(context).pop();
+    Navigator.of(context).push(MaterialPageRoute(builder: (context)=>const ShowDialog()));
+
+
+  }
+
+  Widget showAlertBox() {
+    return AlertDialog(
+      title: const Text('Your complaint is submitted'),
+      actions: [
+        TextButton(
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+            child: const Text('Okay'))
+      ],
+    );
   }
 
   @override
@@ -165,7 +185,7 @@ class _ComplaintFormScreenState extends State<ComplaintFormScreen> {
           child: TextFormField(
             controller: _probName,
             validator: (value) {
-              if (value!.isEmpty) return "Problem Name can't be empty";
+              if (value!.isEmpty) return "Problem name field can't be empty";
               return null;
             },
             autofocus: true,
@@ -187,7 +207,7 @@ class _ComplaintFormScreenState extends State<ComplaintFormScreen> {
           child: TextFormField(
             controller: _cityName,
             validator: (value) {
-              if (value!.isEmpty) return "City Name can't be empty";
+              if (value!.isEmpty) return "City name field can't be empty";
               return null;
             },
             autofocus: true,
@@ -207,8 +227,14 @@ class _ComplaintFormScreenState extends State<ComplaintFormScreen> {
         addPadding(const Icon(Icons.house)),
         Expanded(
           child: DropdownButtonFormField(
+            validator: (value) {
+              if (selectedOff?.name == null) {
+                return "Office field can't be empty";
+              }
+              return null;
+            },
             decoration: const InputDecoration(
-              hintText: 'City Mamlatdar Office',
+              hintText: 'Select Office',
             ),
             isExpanded: true,
             value: selectedOff,
@@ -237,7 +263,13 @@ class _ComplaintFormScreenState extends State<ComplaintFormScreen> {
         addPadding(const Icon(Icons.house)),
         Expanded(
           child: DropdownButtonFormField<String>(
-            hint: const Text('Income Certificate Sub-office'),
+            validator: (value) {
+              if (selectedSubOff == null) {
+                return "Sub-office field can't be empty";
+              }
+              return null;
+            },
+            hint: const Text('Select Sub-office'),
             isExpanded: true,
             value: selectedSubOff,
             items: selectedOff != null
@@ -272,7 +304,8 @@ class _ComplaintFormScreenState extends State<ComplaintFormScreen> {
             maxLines: 5,
             controller: _probDsc,
             validator: (value) {
-              if (value!.isEmpty) return "Problem description can't be empty";
+              if (value!.isEmpty)
+                return "Problem description field can't be empty";
               return null;
             },
             decoration: const InputDecoration(
@@ -287,7 +320,10 @@ class _ComplaintFormScreenState extends State<ComplaintFormScreen> {
 
   Widget submitButton() {
     return ElevatedButton(
-      onPressed: _saveForm,
+      onPressed: (){
+        _saveForm();
+
+      },
       child: const Text('SAVE'),
     );
   }

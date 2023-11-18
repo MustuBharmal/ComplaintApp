@@ -76,6 +76,7 @@ flutter:
     - assets/images/add_event.png
     - assets/images/complaint_app_logo.png
     - assets/dialog_flow_auth.json
+    - assets/images/admin_app_logo.png
 #     - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

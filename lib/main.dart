@@ -61,18 +61,4 @@ class _MyAppState extends State<MyApp> {
     );
   }
 }
-/*
-ThemeData(
-          scaffoldBackgroundColor: GlobalVariables.backgroundColor,
-          colorScheme: const ColorScheme.light(
-            primary: GlobalVariables.primaryColor,
-          ),
-          appBarTheme: const AppBarTheme(
-            elevation: 0,
-            iconTheme: IconThemeData(
-              color: Colors.black,
-            ),
-          ),
-          useMaterial3: true, // can remove this line
-        ),
-*/
+

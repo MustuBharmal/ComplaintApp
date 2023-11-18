@@ -45,7 +45,7 @@ class _DocsImagePickerState extends State<DocsImagePicker> {
             radius: 12,
             backgroundColor: Colors.grey,
             foregroundImage: _imageFile != null ? FileImage(_imageFile!) : null,
-            child: const Icon(Icons.edit_document),
+            child: _imageFile == null ? const Icon(Icons.edit_document) : null,
           ),
         ),
         Expanded(
@@ -63,24 +63,21 @@ class _DocsImagePickerState extends State<DocsImagePicker> {
                     width: 1.5,
                   ),
                   borderRadius: BorderRadius.circular(4.0)),
-              child: const Padding(
-                padding: EdgeInsets.all(6.0),
+              child: Padding(
+                padding: const EdgeInsets.all(6.0),
                 child: Row(
                   children: <Widget>[
-
-                      SizedBox(
-                        height: 50,
-                        child: Text(
-                          'Add document',
-                          textAlign: TextAlign.right,
-                          style: TextStyle(
-
-                            fontSize: 17,
-                            color: Colors.black,
-                            fontWeight: FontWeight.w400,
-                          ),
+                    SizedBox(
+                      height: 50,
+                      child: Text(
+                        _imageFile == null ? 'Add document' : 'Document Added!',
+                        style: const TextStyle(
+                          fontSize: 17,
+                          color: Colors.black,
+                          fontWeight: FontWeight.w400,
                         ),
                       ),
+                    ),
                   ],
                 ),
               ),
@@ -94,7 +91,10 @@ class _DocsImagePickerState extends State<DocsImagePicker> {
   Widget bottomSheet() {
     return Container(
       height: 100.0,
-      width: MediaQuery.of(context).size.width,
+      width: MediaQuery
+          .of(context)
+          .size
+          .width,
       margin: const EdgeInsets.symmetric(
         horizontal: 20,
         vertical: 20,
@@ -110,37 +110,42 @@ class _DocsImagePickerState extends State<DocsImagePicker> {
           const SizedBox(
             height: 20,
           ),
-          TextButton.icon(
-            onPressed: () {
-              pickPic(
-                ImageSource.gallery,
-              );
-            },
-            icon: const Icon(
-              Icons.image,
-            ),
-            label: const Text(
-              "Gallery",
-            ),
+          Row(
+            children: [
+              Expanded(
+                child: TextButton.icon(
+                  onPressed: () {
+                    pickPic(
+                      ImageSource.gallery,
+                    );
+                  },
+                  icon: const Icon(
+                    Icons.image,
+                  ),
+                  label: const Text(
+                    "Gallery",
+                  ),
+                ),
+              ),
+              Flexible(
+                child: TextButton.icon(
+                  onPressed: () {
+                    pickPic(
+                      ImageSource.camera,
+                    );
+                  },
+                  icon: const Icon(
+                    Icons.image,
+                  ),
+                  label: const Text(
+                    "Camera",
+                  ),
+                ),
+              ),
+            ],
           ),
+
         ],
-      ),
-    );
-  }
-
-  OutlineInputBorder borderDecorate() {
-    return OutlineInputBorder(
-      borderSide: BorderSide(
-        color: Theme.of(context).colorScheme.background,
-      ),
-    );
-  }
-
-  OutlineInputBorder focusedBorderDecorate() {
-    return OutlineInputBorder(
-      borderSide: BorderSide(
-        color: Theme.of(context).colorScheme.background,
-        width: 2,
       ),
     );
   }
