@@ -88,62 +88,6 @@ class _ListDetailsScreenState extends State<ListDetailsScreen> {
                       itemCount: complaintData.length,
                     ),
                   ),
-                  Stack(
-                    children: <Widget>[
-                      Column(
-                        children: [
-                          Container(
-                            height: MediaQuery.of(context).size.height * 0.035,
-                            color: const Color(0xffA0E9FF),
-                          ),
-                          SizedBox(
-                            width: MediaQuery.of(context).size.width,
-                            height: MediaQuery.of(context).size.height * 0.8,
-                            child: ClipPath(
-                              clipper: CurveClipper(),
-                              child: Container(
-                                //constraints: BoxConstraints.expand(),
-                                color: const Color(0xffA0E9FF),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                       SingleChildScrollView(
-                        child: Column(
-                          children: [
-                            SizedBox(height: 50.0),
-                            Row(
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                // CircleAvatar(
-                                //   backgroundImage:
-                                //       AssetImage('assets/images/profileImg.png'),
-                                //   radius: 25.0,
-                                // ),
-                               const  SizedBox(
-                                  width: 20.0,
-                                ),
-                                Padding(
-                                  padding:const  EdgeInsets.all(16.0),
-                                  child: Text(
-                                    'List Of Complaints'.tr,
-                                    style:const TextStyle(
-                                      fontSize: 25.0,
-                                      color: Colors.black,
-                                      fontFamily: 'Amaranth',
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
                 ],
               ),
             ),

@@ -16,16 +16,16 @@ import '../models/dept_model.dart';
 import '../models/states_dist_model.dart';
 import '../widgets/docs_image_picker.dart';
 
-class ComplaintFormScreen extends StatefulWidget {
+class AddComplaints extends StatefulWidget {
   static const routeName = '/complain-form-screen';
 
-  const ComplaintFormScreen({super.key});
+  const AddComplaints({super.key});
 
   @override
-  State<ComplaintFormScreen> createState() => _ComplaintFormScreenState();
+  State<AddComplaints> createState() => _AddComplaintsState();
 }
 
-class _ComplaintFormScreenState extends State<ComplaintFormScreen> {
+class _AddComplaintsState extends State<AddComplaints> {
   List<Dept> dept = deptData;
   File? _selectedImage;
   final _form = GlobalKey<FormState>();

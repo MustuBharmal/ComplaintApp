@@ -1,4 +1,5 @@
 import 'package:complain_app/localization.dart';
+import 'package:complain_app/screens/home_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -11,7 +12,6 @@ import 'firebase_options.dart';
 import 'provider/complaint_provider.dart';
 import 'provider/user_provider.dart';
 import 'screens/auth_screen.dart';
-import 'screens/homepage_screen.dart';
 import 'screens/splash_screen.dart';
 
 Future<void> main() async {
