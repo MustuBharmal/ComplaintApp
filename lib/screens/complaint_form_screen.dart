@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:complain_app/global_string.dart';
 import 'package:complain_app/models/complaint_model.dart';
 import 'package:complain_app/provider/complaint_provider.dart';
 import 'package:complain_app/provider/user_provider.dart';
@@ -7,6 +8,7 @@ import 'package:complain_app/widgets/show_dialog.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 
 import '../constants/dept_data.dart';
@@ -113,7 +115,7 @@ class _ComplaintFormScreenState extends State<ComplaintFormScreen> {
 
   Widget showAlertBox() {
     return AlertDialog(
-      title: const Text('Your complaint is submitted'),
+      title: Text(submited.tr),
       actions: [
         TextButton(
             onPressed: () {
@@ -128,7 +130,7 @@ class _ComplaintFormScreenState extends State<ComplaintFormScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Add Complaint'),
+        title: Text(addComplaint.tr),
       ),
       body: _isLoading
           ? const Center(
@@ -189,9 +191,9 @@ class _ComplaintFormScreenState extends State<ComplaintFormScreen> {
               return null;
             },
             autofocus: true,
-            decoration: const InputDecoration(
-              labelText: "Problem Name",
-              hintText: "Aadhar card address",
+            decoration:  InputDecoration(
+              labelText: problemname.tr,
+              hintText: adharcardaddress.tr,
             ),
           ),
         ),
@@ -211,8 +213,8 @@ class _ComplaintFormScreenState extends State<ComplaintFormScreen> {
               return null;
             },
             autofocus: true,
-            decoration: const InputDecoration(
-              labelText: "City Name",
+            decoration: InputDecoration(
+              labelText: cityname.tr,
               hintText: "Unai",
             ),
           ),
@@ -233,8 +235,8 @@ class _ComplaintFormScreenState extends State<ComplaintFormScreen> {
               }
               return null;
             },
-            decoration: const InputDecoration(
-              hintText: 'Select Office',
+            decoration: InputDecoration(
+              hintText: selectoffice.tr,
             ),
             isExpanded: true,
             value: selectedOff,
@@ -269,7 +271,7 @@ class _ComplaintFormScreenState extends State<ComplaintFormScreen> {
               }
               return null;
             },
-            hint: const Text('Select Sub-office'),
+            hint: Text(suboffice.tr),
             isExpanded: true,
             value: selectedSubOff,
             items: selectedOff != null
@@ -308,9 +310,9 @@ class _ComplaintFormScreenState extends State<ComplaintFormScreen> {
                 return "Problem description field can't be empty";
               return null;
             },
-            decoration: const InputDecoration(
-              labelText: "Problem Description",
-              hintText: "About Aadhar problem",
+            decoration:  InputDecoration(
+              labelText: problem.tr,
+              hintText: adhar.tr,
             ),
           ),
         ),
@@ -324,7 +326,7 @@ class _ComplaintFormScreenState extends State<ComplaintFormScreen> {
         _saveForm();
 
       },
-      child: const Text('SAVE'),
+      child: Text(save.tr),
     );
   }
 

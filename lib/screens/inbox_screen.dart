@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:complain_app/global_string.dart';
 import 'package:complain_app/provider/user_provider.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -66,7 +67,7 @@ class _InboxScreenState extends State<InboxScreen> {
                     autocorrect: true,
                     enableSuggestions: true,
                     decoration:
-                        const InputDecoration(labelText: 'Send a messages...'),
+                         InputDecoration(labelText: sendmsg),
                   ),
                 ),
                 IconButton(

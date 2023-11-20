@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 
+import '../global_string.dart';
 import '../models/complaint_model.dart';
 import '../provider/complaint_provider.dart';
 import '../widgets/complaint_card.dart';
@@ -66,9 +68,9 @@ class _ListDetailsScreenState extends State<ListDetailsScreen> {
               child: Stack(
                 children: [
                   complaintData.isEmpty
-                      ? const Center(
+                      ?  Center(
                       child: Text(
-                        'Their is no complaint from your side.',
+                          Message.tr,
                         style: TextStyle(fontSize: 20),
                       ))
                       : Padding(
@@ -107,7 +109,7 @@ class _ListDetailsScreenState extends State<ListDetailsScreen> {
                           ),
                         ],
                       ),
-                      const SingleChildScrollView(
+                       SingleChildScrollView(
                         child: Column(
                           children: [
                             SizedBox(height: 50.0),
@@ -121,14 +123,14 @@ class _ListDetailsScreenState extends State<ListDetailsScreen> {
                                 //       AssetImage('assets/images/profileImg.png'),
                                 //   radius: 25.0,
                                 // ),
-                                SizedBox(
+                               const  SizedBox(
                                   width: 20.0,
                                 ),
                                 Padding(
-                                  padding: EdgeInsets.all(16.0),
+                                  padding:const  EdgeInsets.all(16.0),
                                   child: Text(
-                                    'List Of Complaints',
-                                    style: TextStyle(
+                                    'List Of Complaints'.tr,
+                                    style:const TextStyle(
                                       fontSize: 25.0,
                                       color: Colors.black,
                                       fontFamily: 'Amaranth',

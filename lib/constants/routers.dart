@@ -1,6 +1,8 @@
+import 'package:complain_app/global_string.dart';
 import 'package:complain_app/screens/helping_bot.dart';
 import 'package:complain_app/screens/inbox_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../screens/auth_screen.dart';
 import '../screens/complaint_form_screen.dart';
@@ -61,9 +63,9 @@ Route<dynamic> generateRoute(RouteSettings routeSettings) {
     default:
       return MaterialPageRoute(
         settings: routeSettings,
-        builder: (_) => const Scaffold(
+        builder: (_) => Scaffold(
           body: Center(
-            child: Text('Screen does not exist!'),
+            child: Text(NotExist.tr),
           ),
         ),
       );

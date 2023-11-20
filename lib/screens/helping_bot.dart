@@ -77,7 +77,6 @@ class _HelpingBotState extends State<HelpingBot> {
       });
     }
   }
-
   addMessage(Message message, [bool isUserMessage = false]) {
     messages.add({'message': message, 'isUserMessage': isUserMessage});
   }

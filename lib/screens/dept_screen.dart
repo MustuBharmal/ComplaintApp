@@ -1,4 +1,6 @@
+import 'package:complain_app/global_string.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../constants/strings.dart';
 import '../widgets/list_sub_off_widget.dart';
@@ -14,7 +16,7 @@ class Department extends StatelessWidget {
       appBar: AppBar(
         centerTitle: true,
         title: Text(
-          listOfDept,
+          listOfDept.tr,
           style: const TextStyle(fontSize: 28),
         ),
       ),
@@ -23,42 +25,42 @@ class Department extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(10),
             child: ListWidget(
-              newCollOff,
+              newCollOff.tr,
               listOfNewCollectorSubOff,
             ),
           ),
           Padding(
             padding: const EdgeInsets.all(10),
             child: ListWidget(
-              cityMamlatdarOff,
+              cityMamlatdarOff.tr,
               listOfCityMamlatdarSubOff,
             ),
           ),
           Padding(
             padding: const EdgeInsets.all(10),
             child: ListWidget(
-              prant1,
+              prant1.tr,
               listOfPrant1SubOff,
             ),
           ),
           Padding(
             padding: const EdgeInsets.all(10),
             child: ListWidget(
-              prant2,
+              prant2.tr,
               listOfPrant2SubOff,
             ),
           ),
           Padding(
             padding: const EdgeInsets.all(10),
             child: ListWidget(
-              bahumaliBhavan,
+              bahumaliBhavan.tr,
               listOfBahumaliBhavanSubOff,
             ),
           ),
           Padding(
             padding: const EdgeInsets.all(10),
             child: ListWidget(
-              corporateOff,
+              corporateOff.tr,
               listOfCorporateSubOff,
             ),
           ),

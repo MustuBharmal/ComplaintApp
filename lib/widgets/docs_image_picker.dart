@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 
 class DocsImagePicker extends StatefulWidget {
@@ -70,7 +71,7 @@ class _DocsImagePickerState extends State<DocsImagePicker> {
                     SizedBox(
                       height: 50,
                       child: Text(
-                        _imageFile == null ? 'Add document' : 'Document Added!',
+                        _imageFile == null ? 'Add document'.tr : 'Document Added!'.tr,
                         style: const TextStyle(
                           fontSize: 17,
                           color: Colors.black,

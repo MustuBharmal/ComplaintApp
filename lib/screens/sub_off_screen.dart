@@ -1,3 +1,4 @@
+import 'package:complain_app/global_string.dart';
 import 'package:flutter/material.dart';
 
 class SubOffices extends StatelessWidget {
@@ -12,8 +13,8 @@ class SubOffices extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: const Text(
-          'List of Sub offices',
+        title: Text(
+          listofsub//'List of Sub offices',
         ),
       ),
       body: ListView.separated(

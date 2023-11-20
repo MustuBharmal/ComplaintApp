@@ -1,9 +1,11 @@
+import 'package:complain_app/global_string.dart';
 import 'package:complain_app/screens/complaint_form_screen.dart';
 import 'package:complain_app/screens/dept_screen.dart';
 import 'package:complain_app/screens/helping_bot.dart';
 import 'package:complain_app/widgets/app_drawer.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 
 import '../provider/user_provider.dart';
@@ -31,12 +33,63 @@ class _HomeScreenState extends State<HomeScreen> {
         (_) => Provider.of<UserProvider>(context, listen: false).getUserData());
   }
 
+  final List locale = [
+    {'name': 'ENGLISH', 'locale': const Locale('en', 'US')},
+    {'name': 'ગુજરાતી', 'locale': const Locale('gu', 'IN')},
+    {'name': 'हिंदी', 'locale': const Locale('hi', 'IN')},
+  ];
+
+  updateLanguage(Locale locale) {
+    Get.back();
+    Get.updateLocale(locale);
+  }
+
+  buildLanguageDialog(BuildContext context) {
+    showDialog(
+        context: context,
+        builder: (builder) {
+          return AlertDialog(
+            title: const Text('Choose Your Language'),
+            content: Container(
+              width: double.maxFinite,
+              child: ListView.separated(
+                  shrinkWrap: true,
+                  itemBuilder: (context, index) {
+                    return Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: GestureDetector(
+                        child: Text(locale[index]['name']),
+                        onTap: () {
+                          print(locale[index]['name']);
+                          updateLanguage(locale[index]['locale']);
+                        },
+                      ),
+                    );
+                  },
+                  separatorBuilder: (context, index) {
+                    return const Divider(
+                      color: Colors.blue,
+                    );
+                  },
+                  itemCount: locale.length),
+            ),
+          );
+        });
+  }
+
   @override
   Widget build(BuildContext context) {
     // var query = MediaQuery.of(context);
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Home Screen'),
+        title:  Text('Home Screen'.tr),
+        actions: [
+          IconButton(
+              onPressed: () {
+                buildLanguageDialog(context);
+              },
+              icon: Icon(Icons.language_outlined))
+        ],
       ),
       bottomNavigationBar: CurvedNavigationBar(
         animationDuration: const Duration(milliseconds: 300),
@@ -72,13 +125,13 @@ class _HomeScreenState extends State<HomeScreen> {
                   children: [
                     ButtonWidget(
                       imageString1,
-                      "Complaint Form",
+                      title1.tr,
                       ComplaintFormScreen.routeName,
                     ),
                     Column(
                       children: [
-                        titleSection('Complaint Form',
-                            'An upcoming event is a\nplanned occurrence that\nis scheduled to take place\nin the near future'),
+                        titleSection(title1.tr, desc1.tr),
+                        //('Complaint Form','An upcoming event is a\nplanned occurrence that\nis scheduled to take place\nin the near future')
                       ],
                     )
                   ],
@@ -87,19 +140,18 @@ class _HomeScreenState extends State<HomeScreen> {
                   children: [
                     ButtonWidget(
                       imageString2,
-                      "All Complaints",
+                      title2.tr,
                       ListDetailsScreen.routeName,
                     ),
-                    titleSection('All Complaints',
-                        'A past event is an event\nthat has already happened\n& is no longer in the present\nor future.'),
+                    titleSection(title2.tr, desc2.tr),
+                    //('All Complaints','A past event is an event\nthat has already happened\n& is no longer in the present\nor future.'),
                   ],
                 ),
                 Row(
                   children: [
-                    ButtonWidget(imageString3, "List of Department",
-                        Department.routeName),
-                    titleSection('List of Department',
-                        'Adding an event is the\nprocess for creating event\nfor participant to register\nin it.'),
+                    ButtonWidget(imageString3, title3.tr, Department.routeName),
+                    titleSection(title3.tr, desc3.tr),
+                    //('List of Department','Adding an event is the\nprocess for creating event\nfor participant to register\nin it.'),
                   ],
                 ),
               ],

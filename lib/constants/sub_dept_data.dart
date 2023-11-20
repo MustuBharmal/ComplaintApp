@@ -1,5 +1,7 @@
+import 'package:complain_app/global_string.dart';
 import 'package:complain_app/models/sub_dept_model.dart';
+import 'package:get/get.dart';
 
-const subDept = [
-  SubDeptName(id: 's1', deptId: ['o1'], name: 'Land revenue and other taxes',),
+ List<SubDeptName> subDept = [
+  SubDeptName(id: 's1', deptId: ['o1'], name: LRHint.tr),
 ];
