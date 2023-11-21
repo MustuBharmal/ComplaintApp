@@ -6,7 +6,7 @@ import 'package:get/get.dart';
 List<Dept> deptData = [
   Dept(
     id: 'o1',
-    name:  newCollOff.tr,            //'New collector office',
+    name:  newCollOff,            //'New collector office',
     subDept: [
       'Land revenue and other taxes',
       'Land records and their updates',

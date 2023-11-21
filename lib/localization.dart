@@ -108,22 +108,25 @@ class LocaleString extends Translations {
           adhar: adhar,
           addComplaint: addComplaint,
           submited: 'Your complaint is submitted',
-          problemname:problemname,
-          adharcardaddress:adharcardaddress,
-          cityname:cityname,
-          selectoffice:selectoffice,
-          suboffice:suboffice,
-          'Add document':'Add document',
-          'Document Added!':'Document Added!'
-
-
-
-
-
-
-
+          problemname: problemname,
+          adharcardaddress: adharcardaddress,
+          cityname: cityname,
+          selectoffice: selectoffice,
+          suboffice: suboffice,
+          'Add document': 'Add document',
+          'Document Added!': 'Document Added!',
+          'Sahayak': 'Sahayak',
+          'Message is empty': 'Message is empty',
+          "Register Complaint": "Register Complaint",
+          "Departments": "Departments",
+          "Sub-Offices": "Sub-Offices",
+          "View Departments": "View Departments",
+          "Select Language": "Select Language",
+          "Your Complaints": "Your Complaints",
+          "Helping Bot": "Helping Bot",
+          "Welcome,":"Welcome,",
         },
-        //HINDI LANGUAGE
+//HINDI LANGUAGE
         'hi_IN': {
           'Home Screen': 'होम स्क्रीन',
           'changelang': 'भाषा बदलो',
@@ -139,7 +142,7 @@ class LocaleString extends Translations {
           NCrHint: 'मदद :अपराध से संबंधित, शामिल या होने वाला नहीं',
           CCHint:
               'मदद :एक दस्तावेजी प्रमाण कि कोई व्यक्ति किसी विशेष जाति से संबंधित है',
-          //   CHint:,
+//   CHint:,
           WDHint:
               'मदद :प्रदर्शनी से संबंधित सामग्री महिला एवं कार्य उद्योग में श्रम विभाजन पर एक दस्तावेज',
           PRHint:
@@ -148,8 +151,8 @@ class LocaleString extends Translations {
               "मदद :आय प्रमाण पत्र में उल्लिखित आय की राशि की गणना प्रत्येक परिवार की वास्तविक आय के आधार पर की जाती है",
           CastCHint:
               "मदद :जाति प्रमाण पत्र एक दस्तावेजी प्रमाण है कि कोई व्यक्ति किसी विशेष जाति से संबंधित है",
-          //   WIHint:,
-          //  ILHint:,
+//   WIHint:,
+//  ILHint:,
           BCHint:
               "मदद :एक महत्वपूर्ण रिकॉर्ड जो किसी व्यक्ति के जन्म का दस्तावेजीकरण करता है",
           DCHint:
@@ -167,8 +170,8 @@ class LocaleString extends Translations {
               "मदद :सरकार को निजी भूमि अधिग्रहण करने की अनुमति दी गई। यह भूमि अधिग्रहण से संबंधित एकमात्र कानून है, जो कई बार संशोधित होने के बावजूद अपने उद्देश्य को पूरा करने में विफल रहा है।",
           SMHint:
               "मदद :विभिन्न राज्य स्तरों पर कानूनी पर्यवेक्षण होता है, जिसमें केवल नगर पालिका की मूल क्षमता के मामलों में वैधता का पर्यवेक्षण शामिल होता है",
-          //  EAHCHint:,
-          //  SHEHint:,
+//  EAHCHint:,
+//  SHEHint:,
           PPV: "मदद :सभी बच्चों का टीकाकरण",
           ADHint1:
               "मदद :अशांत क्षेत्रों में अचल संपत्ति के कुछ हस्तांतरण की घोषणा के लिए सरकारी विभाग द्वारा जारी",
@@ -176,8 +179,8 @@ class LocaleString extends Translations {
               "मदद :सरकार को निजी भूमि अधिग्रहण करने की अनुमति दी गई। यह भूमि अधिग्रहण से संबंधित एकमात्र कानून है, जो कई बार संशोधित होने के बावजूद अपने उद्देश्य को पूरा करने में विफल रहा है।",
           SMHint1:
               "मदद :विभिन्न राज्य स्तरों पर कानूनी पर्यवेक्षण होता है, जिसमें केवल नगर पालिका की मूल क्षमता के मामलों में वैधता का पर्यवेक्षण शामिल होता है",
-          //  EAHCHint1:,
-          // SHEHint1:,
+//  EAHCHint1:,
+// SHEHint1:,
           PPV1: "मदद :सभी बच्चों का टीकाकरण",
           LRHint:
               "मदद :जमीन के एक टुकड़े के मालिक द्वारा सरकार को भुगतान की जाने वाली कोई भी राशि। यह सरकार को दिए जाने वाले कर का एक रूप है",
@@ -253,23 +256,30 @@ class LocaleString extends Translations {
           adhar: "आधार समस्या के बारे में",
           addComplaint: 'शिकायत जोड़ें',
           submited: 'आपकी शिकायत प्रस्तुत कर दी गई है',
-          problemname:"समस्या का नाम",
-          adharcardaddress:"आधार कार्ड का पता",
-          cityname:'शहर का नाम',
-          selectoffice:'कार्यालय चुनें',
-          suboffice:'उप-कार्यालय का चयन करें',
-          'Add document':'दस्तावेज़ जोड़ें',
-          'Document Added!':'दस्तावेज़ जोड़ा गया!'
-
-
-
-
+          problemname: "समस्या का नाम",
+          adharcardaddress: "आधार कार्ड का पता",
+          cityname: 'शहर का नाम',
+          selectoffice: 'कार्यालय चुनें',
+          suboffice: 'उप-कार्यालय का चयन करें',
+          'Add document': 'दस्तावेज़ जोड़ें',
+          'Document Added!': 'दस्तावेज़ जोड़ा गया!',
+          'Sahayak': 'सहायक',
+          'Message is empty': 'संदेश खाली है',
+          "Register Complaint": "शिकायत पंजीकृत करें",
+          "Departments": "विभाग",
+          "Sub-Offices": "उपकार्यालय",
+          "View Departments": "विभाग देखें",
+          "Select Language": "भाषा चुनें",
+          "Your Complaints": "आपकी शिकायतें",
+          "Helping Bot": "सहायक बॉट",
+          "Welcome,":"स्वागत,",
         },
-        //GUJARATI LANGUAGE
+//GUJARATI LANGUAGE
         'gu_IN': {
           'Home Screen': 'હોમ સ્ક્રીન',
           'changelang': 'ભાષા બદલો',
           'List Of Complaints': 'ફરિયાદોની યાદી',
+          "Welcome,":"સ્વાગત,",
           bahumaliBhavan: ' બહુમાળી ભવન',
           listOfDept: 'વિભાગની યાદી',
           newCollOff: 'નવી કલેક્ટર કચેરી',
@@ -279,7 +289,7 @@ class LocaleString extends Translations {
           corporateOff: 'કોર્પોરેશન ઓફિસ',
           NCrHint: 'મદદ : ગુનાથી સંબંધિત નથી, તેમાં સામેલ નથી અથવા નથી',
           CCHint: 'મદદ :વ્યક્તિ ચોક્કસ જાતિની છે તેનો દસ્તાવેજી પુરાવો',
-          //  CHint:,
+//  CHint:,
           WDHint:
               'મદદ :ઉદ્યોગમાં શ્રમ વિભાગ પર મહિલા અને કાર્ય પ્રદર્શનને લગતી સામગ્રી',
           PRHint:
@@ -288,8 +298,8 @@ class LocaleString extends Translations {
               "મદદ :આવકના પ્રમાણપત્રમાં દર્શાવેલ આવકની રકમ દરેક પરિવારની વાસ્તવિક આવકના આધારે ગણવામાં આવે છે",
           CastCHint:
               "મદદ :જાતિ પ્રમાણપત્ર એ એક દસ્તાવેજી પુરાવો છે કે વ્યક્તિ ચોક્કસ જાતિની છે",
-          //  WIHint:,
-          // ILHint:,
+//  WIHint:,
+// ILHint:,
           BCHint:
               "મદદ :એક મહત્વપૂર્ણ રેકોર્ડ જે વ્યક્તિના જન્મને દસ્તાવેજ કરે છે",
           DCHint:
@@ -307,8 +317,8 @@ class LocaleString extends Translations {
               "મદદ :સરકારને ખાનગી જમીનો સંપાદિત કરવાની મંજૂરી આપી. તે જમીન સંપાદન સંબંધિત એકમાત્ર કાયદો છે, જેમાં ઘણી વખત સુધારો કરવામાં આવ્યો હોવા છતાં, તેનો હેતુ પૂરો કરવામાં નિષ્ફળ ગયો છે",
           SMHint:
               "મદદ :વિવિધ રાજ્ય સ્તરો કાનૂની દેખરેખ તરીકે થાય છે, જેમાં ફક્ત નગરપાલિકાની મૂળ યોગ્યતાની બાબતોમાં કાયદેસરતાની દેખરેખનો સમાવેશ થાય છે",
-          //  EAHCHint:,
-          // SHEHint:,
+//  EAHCHint:,
+// SHEHint:,
           PPV: "મદદ :બધા બાળકોને રસી આપવી",
           ADHint1:
               "મદદ :અવ્યવસ્થિત વિસ્તારોમાં સ્થાવર મિલકતના ચોક્કસ સ્થાનાંતરણની જાહેરાત કરવા માટે સરકારી વિભાગ દ્વારા જારી કરવામાં આવે છે",
@@ -316,8 +326,8 @@ class LocaleString extends Translations {
               "મદદ :સરકારને ખાનગી જમીનો સંપાદિત કરવાની મંજૂરી આપી. તે જમીન સંપાદન સંબંધિત એકમાત્ર કાયદો છે, જેમાં ઘણી વખત સુધારો કરવામાં આવ્યો હોવા છતાં, તેનો હેતુ પૂરો કરવામાં નિષ્ફળ ગયો છે",
           SMHint1:
               "મદદ :વિવિધ રાજ્ય સ્તરો કાનૂની દેખરેખ તરીકે થાય છે, જેમાં ફક્ત નગરપાલિકાની મૂળ યોગ્યતાની બાબતોમાં કાયદેસરતાની દેખરેખનો સમાવેશ થાય છે",
-          //    EAHCHint1:,
-          //    SHEHint1:,
+//    EAHCHint1:,
+//    SHEHint1:,
           PPV1: "મદદ :બધા બાળકોને રસી આપવી",
           LRHint:
               "મદદ :માલિક દ્વારા જમીનનો ટુકડો રાખવાને બદલે સરકારને ચૂકવવાપાત્ર કોઈપણ રકમ. તે સરકારને ચૂકવવામાં આવતો કર છે",
@@ -393,14 +403,22 @@ class LocaleString extends Translations {
           addComplaint: 'ફરિયાદ ઉમેરો',
           submited: 'તમારી ફરિયાદ સબમિટ છે',
           adhar: "આધાર સમસ્યા વિશે",
-          problemname:"સમસ્યાનું નામ",
-          adharcardaddress:"આધાર કાર્ડ સરનામું",
-          cityname:'શહેરનું નામ',
-          selectoffice:'ઓફિસ પસંદ કરો',
-          suboffice:'પેટા ઓફિસ પસંદ કરો',
-          'Add document':'દસ્તાવેજ ઉમેરો',
-          'Document Added!':'દસ્તાવેજ ઉમેરાયો!',
-
+          problemname: "સમસ્યાનું નામ",
+          adharcardaddress: "આધાર કાર્ડ સરનામું",
+          cityname: 'શહેરનું નામ',
+          selectoffice: 'ઓફિસ પસંદ કરો',
+          suboffice: 'પેટા ઓફિસ પસંદ કરો',
+          'Add document': 'દસ્તાવેજ ઉમેરો',
+          'Document Added!': 'દસ્તાવેજ ઉમેરાયો!',
+          'Sahayak': 'સહાયક',
+          'Message is empty': 'સંદેશ ખાલી છે',
+          'Register Complaint': 'શિકાયત દાખલ કરો',
+          'Departments': 'વિભાગો',
+          'Sub-Offices': 'ઉપ-કચેરીઓ',
+          'View Departments': 'વિભાગો જુઓ',
+          'Select Language': 'ભાષા પસંદ કરો',
+          'Your Complaints': 'તમારી શિકાયતો',
+          'Helping Bot': 'મદદકર્તા બોટ',
         }
       };
 }

@@ -53,7 +53,7 @@ class _YourComplaintsState extends State<YourComplaints> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Your Complaints'),),
+      appBar: AppBar(title: Text('Your Complaints'.tr),),
       body: _isLoading
           ? const Center(
               child: CircularProgressIndicator(),

@@ -1,5 +1,6 @@
 import 'package:dialog_flowtter/dialog_flowtter.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import 'messages.dart';
 
@@ -28,7 +29,7 @@ class _HelpingBotState extends State<HelpingBot> {
     return Scaffold(
       backgroundColor: Colors.blue.shade50,
       appBar: AppBar(
-        title: const Text('Sahayak'),
+        title: Text('Sahayak'.tr),
       ),
       body: Column(
         children: [
@@ -61,7 +62,7 @@ class _HelpingBotState extends State<HelpingBot> {
 
   sendMessage(String text) async {
     if (text.isEmpty) {
-      print('Message is empty');
+      print('Message is empty'.tr);
     } else {
       setState(
             () {
