@@ -1,5 +1,7 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:complain_app/screens/complaint_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:line_icons/line_icons.dart';
 
 import '../constants/colors.dart';
@@ -9,7 +11,7 @@ class ComplaintCard extends StatelessWidget {
   final String probName;
   final String probDsc;
   final String off;
-  final String subOff;
+  final Timestamp timestamp;
   final String status;
 
   const ComplaintCard(
@@ -17,7 +19,7 @@ class ComplaintCard extends StatelessWidget {
     this.probName,
     this.probDsc,
     this.off,
-    this.subOff,
+    this.timestamp,
     this.status, {
     super.key,
   });
@@ -33,7 +35,7 @@ class ComplaintCard extends StatelessWidget {
           children: [
             Container(
               width: (deviceSize.width),
-              height: (deviceSize.width / 2),
+              height: (deviceSize.height / 4.5),
               decoration: BoxDecoration(
                   boxShadow: const [
                     BoxShadow(
@@ -76,7 +78,7 @@ class ComplaintCard extends StatelessWidget {
                           children: [
                             const Icon(LineIcons.calendar),
                             Text(
-                              ' :- ${DateTime.now().toString()}',
+                              ' :- ${DateFormat.yMMMMd().format(timestamp.toDate())}',
                               overflow: TextOverflow.ellipsis,
                               style: const TextStyle(
                                 fontSize: 13,

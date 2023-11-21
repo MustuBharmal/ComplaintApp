@@ -17,10 +17,9 @@ final ThemeData customTheme = ThemeData(
     foregroundColor: Colors.black,
   ),
   textTheme:  const TextTheme(
-    headlineSmall: TextStyle(color: Colors.black),
-    titleLarge: TextStyle(color: Colors.black),
-    bodyMedium: TextStyle(color: Colors.black),
-    labelLarge: TextStyle(color: Colors.black),
+    headlineLarge: headerStyle,
+    titleLarge: titleStyle,
+    titleMedium: subtitleStyle,
   ),
   textButtonTheme: TextButtonThemeData(style: TextButton.styleFrom(foregroundColor: Colors.black),),
   elevatedButtonTheme: ElevatedButtonThemeData(

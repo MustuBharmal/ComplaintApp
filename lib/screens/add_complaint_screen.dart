@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:complain_app/global_string.dart';
 import 'package:complain_app/models/complaint_model.dart';
 import 'package:complain_app/provider/complaint_provider.dart';
@@ -50,6 +51,7 @@ class _AddComplaintsState extends State<AddComplaints> {
     imgUrl: '',
     userId: '',
     complaintId: '',
+    createdAt: Timestamp.now(),
   );
   var _isLoading = false;
 
@@ -101,6 +103,7 @@ class _AddComplaintsState extends State<AddComplaints> {
             .userModel!
             .dist!
             .substring(0, 3),
+        createdAt: Timestamp.now(),
       );
       await Provider.of<ComplaintProvider>(context, listen: false)
           .addComplaintData(_editedComplaint);
@@ -108,9 +111,8 @@ class _AddComplaintsState extends State<AddComplaints> {
     setState(() {
       _isLoading = false;
     });
-    Navigator.of(context).push(MaterialPageRoute(builder: (context)=>const ShowDialog()));
-
-
+    Navigator.of(context)
+        .push(MaterialPageRoute(builder: (context) => const ShowDialog()));
   }
 
   Widget showAlertBox() {
@@ -191,7 +193,7 @@ class _AddComplaintsState extends State<AddComplaints> {
               return null;
             },
             autofocus: true,
-            decoration:  InputDecoration(
+            decoration: InputDecoration(
               labelText: problemname.tr,
               hintText: adharcardaddress.tr,
             ),
@@ -310,7 +312,7 @@ class _AddComplaintsState extends State<AddComplaints> {
                 return "Problem description field can't be empty";
               return null;
             },
-            decoration:  InputDecoration(
+            decoration: InputDecoration(
               labelText: problem.tr,
               hintText: adhar.tr,
             ),
@@ -322,9 +324,8 @@ class _AddComplaintsState extends State<AddComplaints> {
 
   Widget submitButton() {
     return ElevatedButton(
-      onPressed: (){
+      onPressed: () {
         _saveForm();
-
       },
       child: Text(save.tr),
     );

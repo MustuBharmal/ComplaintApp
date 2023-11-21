@@ -76,7 +76,7 @@ class _YourComplaintsState extends State<YourComplaints> {
                           complaintData[i].probName,
                           complaintData[i].probDsc,
                           complaintData[i].off,
-                          complaintData[i].subOff,
+                          complaintData[i].createdAt,
                           complaintData[i].status,
                         ),
                         itemCount: complaintData.length,

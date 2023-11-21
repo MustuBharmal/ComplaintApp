@@ -13,6 +13,7 @@ class ComplaintModel {
   final String? userId;
   late String imgUrl;
   final String complaintId;
+  final Timestamp createdAt;
 
   ComplaintModel({
     required this.id,
@@ -26,7 +27,8 @@ class ComplaintModel {
     required this.status,
     required this.userId,
     required this.imgUrl,
-    required this.complaintId
+    required this.complaintId,
+    required this.createdAt,
   });
 
   toJson() {
@@ -42,6 +44,7 @@ class ComplaintModel {
       'userId': userId,
       'imgUrl': imgUrl,
       'complaintId': complaintId,
+      'createdAt': createdAt,
     };
   }
 
@@ -61,6 +64,7 @@ class ComplaintModel {
       userId: data['userId'],
       status: data['status'],
       complaintId: data['complaintId'],
+      createdAt: data['createdAt'],
     );
   }
 }
