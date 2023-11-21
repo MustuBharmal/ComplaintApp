@@ -9,7 +9,7 @@ import '../screens/add_complaint_screen.dart';
 import '../screens/complaint_screen.dart';
 import '../screens/dept_screen.dart';
 import '../screens/home_screen.dart';
-import '../screens/list_details_screen.dart';
+import '../screens/your_complaint_screen.dart';
 import '../screens/sub_off_screen.dart';
 
 Route<dynamic> generateRoute(RouteSettings routeSettings) {
@@ -19,10 +19,10 @@ Route<dynamic> generateRoute(RouteSettings routeSettings) {
         settings: routeSettings,
         builder: (_) => const AuthScreen(),
       );
-    case ListDetailsScreen.routeName:
+    case YourComplaints.routeName:
       return MaterialPageRoute(
         settings: routeSettings,
-        builder: (_) => const ListDetailsScreen(),
+        builder: (_) => const YourComplaints(),
       );
     case HomeScreen.routeName:
       return MaterialPageRoute(

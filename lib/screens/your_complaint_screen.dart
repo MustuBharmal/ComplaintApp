@@ -6,18 +6,17 @@ import '../global_string.dart';
 import '../models/complaint_model.dart';
 import '../provider/complaint_provider.dart';
 import '../widgets/complaint_card.dart';
-import '../widgets/curve_clipper.dart';
 
-class ListDetailsScreen extends StatefulWidget {
-  const ListDetailsScreen({super.key});
+class YourComplaints extends StatefulWidget {
+  const YourComplaints({super.key});
 
   static const String routeName = '/list-details-screen';
 
   @override
-  State<StatefulWidget> createState() => _ListDetailsScreenState();
+  State<StatefulWidget> createState() => _YourComplaintsState();
 }
 
-class _ListDetailsScreenState extends State<ListDetailsScreen> {
+class _YourComplaintsState extends State<YourComplaints> {
   bool dataFetched = false;
 
   late List<ComplaintModel> complaintData = [];
@@ -29,9 +28,6 @@ class _ListDetailsScreenState extends State<ListDetailsScreen> {
   void didChangeDependencies() {
     if (!dataFetched) {
       String args = ModalRoute.of(context)!.settings.arguments as String;
-      if (args == '') {
-        Text('No complaints');
-      }
       if (args == 'all') {
         complaintData = Provider.of<ComplaintProvider>(context).allComplaints;
       } else {
@@ -57,6 +53,7 @@ class _ListDetailsScreenState extends State<ListDetailsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(title: const Text('Your Complaints'),),
       body: _isLoading
           ? const Center(
               child: CircularProgressIndicator(),
@@ -71,23 +68,19 @@ class _ListDetailsScreenState extends State<ListDetailsScreen> {
                       ?  Center(
                       child: Text(
                           Message.tr,
-                        style: TextStyle(fontSize: 20),
+                        style: const TextStyle(fontSize: 20),
                       ))
-                      : Padding(
-                    padding: const EdgeInsets.only(
-                        right: 20, left: 20, top: 150, bottom: 0),
-                    child: ListView.builder(
-                      itemBuilder: (ctx, i) => ComplaintCard(
-                        complaintData[i].id,
-                        complaintData[i].probName,
-                        complaintData[i].probDsc,
-                        complaintData[i].off,
-                        complaintData[i].subOff,
-                        complaintData[i].status,
+                      : ListView.builder(
+                        itemBuilder: (ctx, i) => ComplaintCard(
+                          complaintData[i].id,
+                          complaintData[i].probName,
+                          complaintData[i].probDsc,
+                          complaintData[i].off,
+                          complaintData[i].subOff,
+                          complaintData[i].status,
+                        ),
+                        itemCount: complaintData.length,
                       ),
-                      itemCount: complaintData.length,
-                    ),
-                  ),
                 ],
               ),
             ),

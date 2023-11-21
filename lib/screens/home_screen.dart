@@ -2,7 +2,7 @@ import 'package:complain_app/provider/user_provider.dart';
 import 'package:complain_app/screens/add_complaint_screen.dart';
 import 'package:complain_app/screens/dept_screen.dart';
 import 'package:complain_app/screens/helping_bot.dart';
-import 'package:complain_app/screens/list_details_screen.dart';
+import 'package:complain_app/screens/your_complaint_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:line_icons/line_icons.dart';
@@ -123,8 +123,8 @@ class _HomeScreenState extends State<HomeScreen> {
                       ],
                     ),
                     GestureDetector(
-                      onTap: () async {
-                        Provider.of<UserProvider>(context).logout();
+                      onTap: () {
+                        Provider.of<UserProvider>(context,listen: false).logout();
                       },
                       child: Container(
                         width: 50,
@@ -348,7 +348,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     GestureDetector(
                       onTap: () {
                         Navigator.of(context).pushNamed(
-                            ListDetailsScreen.routeName,
+                            YourComplaints.routeName,
                             arguments: 'all');
                       },
                       child: Container(

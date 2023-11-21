@@ -1,5 +1,8 @@
 import 'package:complain_app/screens/complaint_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:line_icons/line_icons.dart';
+
+import '../constants/colors.dart';
 
 class ComplaintCard extends StatelessWidget {
   final String? id;
@@ -21,123 +24,125 @@ class ComplaintCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var deviceSize = MediaQuery.of(context).size;
     return SingleChildScrollView(
-      child: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.symmetric(
-              vertical: 8,
-              horizontal: 14,
-            ),
-            child: Card(
-              elevation: 2,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(11),
-              ),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 20,horizontal: 30),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Container(
+              width: (deviceSize.width),
+              height: (deviceSize.width / 2),
+              decoration: BoxDecoration(
+                  boxShadow: const [
+                    BoxShadow(
+                      color: ThemeColor.shadow,
+                      blurRadius: 10,
+                      spreadRadius: 0.1,
+                      offset: Offset(0, 10),
+                    )
+                  ],
+                  color: ThemeColor.white,
+                  borderRadius: BorderRadius.circular(20)),
               child: InkWell(
-                splashColor: Colors.blue.withAlpha(300),
                 onTap: () {
                   Navigator.of(context).pushNamed(
                     ComplaintScreen.routeName,
                     arguments: id,
                   );
                 },
-                child: Container(
-                  padding: const EdgeInsets.all(10),
-                  child: Wrap(
-                    children: <Widget>[
-                      Text(
-                        probName,
-                        overflow: TextOverflow.ellipsis,
-                        style: const TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
+                child: SizedBox(
+                  width: 70,
+                  height: 35,
+                  child: Padding(
+                    padding: const EdgeInsets.all(12.0),
+                    child: Column(
+                      children: <Widget>[
+                        Text(
+                          probName,
+                          softWrap: false,
+                          overflow: TextOverflow.ellipsis,
+                          style: const TextStyle(
+                            fontSize: 25,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
-                      ),
-                      const SizedBox(height: 40),
-                      Wrap(
-                        crossAxisAlignment: WrapCrossAlignment.end,
-                        children: [
-                          const Icon(Icons.calendar_today),
-                          const SizedBox(
-                            width: 5,
-                          ),
-                          Text(
-                            DateTime.now().toString(),
-                            overflow: TextOverflow.ellipsis,
-                            style: const TextStyle(
-                              fontSize: 13,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          const Text(
-                            ' in ',
-                            style: TextStyle(fontSize: 13),
-                            overflow: TextOverflow.ellipsis,
-                          ),
-                          Text(
-                            subOff,
-                            overflow: TextOverflow.ellipsis,
-                            style: const TextStyle(
-                                fontSize: 13, fontWeight: FontWeight.bold),
-                          )
-                        ],
-                      ),
-                      const SizedBox(height: 30),
-                      Row(
-                        children: <Widget>[
-                          Flexible(
-                            child: Text(
-                              probDsc,
+                        const SizedBox(
+                          height: 15,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            const Icon(LineIcons.calendar),
+                            Text(
+                              ' :- ${DateTime.now().toString()}',
                               overflow: TextOverflow.ellipsis,
-                              style: const TextStyle(fontSize: 15),
+                              style: const TextStyle(
+                                fontSize: 13,
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
-                          )
-                        ],
-                      ),
-                      const SizedBox(height: 7),
-                      Center(
-                        child: Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: <Widget>[
-                              Text(
-                                status,
-                                style: TextStyle(
-                                  fontSize: 16,
-                                  color: status == 'Rejected'
-                                      ? Colors.red
-                                      : status == 'Solved'
-                                          ? Colors.green
-                                          : status == 'In Progress'
-                                              ? Colors.blue
-                                              : status == 'Passed'
-                                                  ? Colors.cyan
-                                                  : Colors.deepOrange,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                              const Text(
-                                'Status',
-                                overflow: TextOverflow.ellipsis,
-                                style: TextStyle(
-                                  fontSize: 13,
-                                ),
-                                textAlign: TextAlign.center,
-                              ),
-                            ],
+                          ],
+                        ),
+                        const SizedBox(
+                          height: 6,
+                        ),
+
+                        Flexible(
+                          child: Text(
+                            'Problem Description :- $probDsc',
+                            overflow: TextOverflow.visible,
+                            style: const TextStyle(fontSize: 15),
                           ),
                         ),
-                      )
-                    ],
+                        const SizedBox(
+                          height: 6,
+                        ),
+                        Center(
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: <Widget>[
+                                const Text(
+                                  'Status :- ',
+                                  overflow: TextOverflow.ellipsis,
+                                  style: TextStyle(
+                                    fontSize: 18,
+                                  ),
+                                  textAlign: TextAlign.center,
+                                ),
+                                Text(
+                                  status.toUpperCase(),
+                                  style: TextStyle(
+                                    fontSize: 18,
+                                    color: status == 'Rejected'
+                                        ? Colors.red
+                                        : status == 'Solved'
+                                            ? Colors.green
+                                            : status == 'In Progress'
+                                                ? Colors.blue
+                                                : status == 'Passed'
+                                                    ? Colors.cyan
+                                                    : Colors.deepOrange,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+
+                              ],
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
                   ),
                 ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

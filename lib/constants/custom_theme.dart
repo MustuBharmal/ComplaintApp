@@ -1,21 +1,20 @@
-
 import 'package:flutter/material.dart';
-
+import 'colors.dart';
 import 'global_variables.dart';
+
 Color getColor(Set<MaterialState> states) {
   return Colors.black;
 }
 final ThemeData customTheme = ThemeData(
   colorScheme: const ColorScheme.light(
-    primary: primaryColor,
-    secondary: bgColor,
+    primary: ThemeColor.primary,
+    secondary: ThemeColor.secondary,
   ),
-  scaffoldBackgroundColor: scaffoldBackgroundColor,
+  scaffoldBackgroundColor: ThemeColor.scaffoldBgColor,
   appBarTheme: const AppBarTheme(
     elevation: 0,
     iconTheme: IconThemeData(color: Colors.black),
     foregroundColor: Colors.black,
-    color: Color(0xffA0E9FF),
   ),
   textTheme:  const TextTheme(
     headlineSmall: TextStyle(color: Colors.black),

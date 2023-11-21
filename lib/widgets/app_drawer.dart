@@ -4,7 +4,7 @@ import 'package:provider/provider.dart';
 
 import '../constants/global_variables.dart';
 import '../provider/user_provider.dart';
-import '../screens/list_details_screen.dart';
+import '../screens/your_complaint_screen.dart';
 
 class AppDrawer extends StatelessWidget {
   const AppDrawer({super.key});
@@ -39,7 +39,7 @@ class AppDrawer extends StatelessWidget {
                 onTap: () {
                   Navigator.of(context).pushNamed(
                     arguments: 'pending',
-                    ListDetailsScreen.routeName,
+                    YourComplaints.routeName,
                   );
                 },
               ),
@@ -60,7 +60,7 @@ class AppDrawer extends StatelessWidget {
                 onTap: () {
                   Navigator.of(context).pushNamed(
                     arguments: 'resolved',
-                    ListDetailsScreen.routeName,
+                    YourComplaints.routeName,
                   );
                 },
               ),

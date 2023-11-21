@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 import '../screens/home_screen.dart';
@@ -17,10 +16,11 @@ class ShowDialog extends StatelessWidget {
           title: const Text('Your complaint is submitted'),
           actions: [
             TextButton(
-                onPressed: () {
-                  Navigator.of(context).pushNamed(HomeScreen.routeName);
-                },
-                child: const Text('Okay'))
+              onPressed: () {
+                Navigator.of(context).pushNamed(HomeScreen.routeName);
+              },
+              child: const Text('Okay'),
+            )
           ],
         ),
       ),
