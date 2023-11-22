@@ -426,7 +426,7 @@ class _AuthScreenState extends State<AuthScreen>
             onChanged: (selectedValue) {
               setState(() {
                 selectedState = selectedValue!;
-                selectedDist = '';
+                selectedDist = null;
               });
             },
             items: states
@@ -465,6 +465,7 @@ class _AuthScreenState extends State<AuthScreen>
               label: const Text("Select District"),
             ),
             isExpanded: true,
+            value: selectedDist,
             items: selectedState == ''
                 ? []
                 : states

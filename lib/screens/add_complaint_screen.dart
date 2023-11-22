@@ -246,6 +246,7 @@ class _AddComplaintsState extends State<AddComplaints> {
             onChanged: (Dept? value) {
               setState(() {
                 selectedOff = value!;
+                selectedSubOff = null;
               });
             },
           ),

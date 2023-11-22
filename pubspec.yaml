@@ -38,7 +38,7 @@ dependencies:
   provider: ^6.0.5
   image_picker: ^0.8.7+4
   excel: 2.1.0
-  dialog_flowtter:
+  dialog_flowtter: ^0.3.3
   flutter_localizations:
     sdk: flutter
   intl: ^0.18.0
