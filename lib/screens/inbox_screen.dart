@@ -67,7 +67,7 @@ class _InboxScreenState extends State<InboxScreen> {
                     autocorrect: true,
                     enableSuggestions: true,
                     decoration:
-                         InputDecoration(labelText: sendmsg),
+                         InputDecoration(labelText: sendMsg),
                   ),
                 ),
                 IconButton(

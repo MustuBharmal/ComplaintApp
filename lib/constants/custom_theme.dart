@@ -11,10 +11,12 @@ final ThemeData customTheme = ThemeData(
     secondary: ThemeColor.secondary,
   ),
   scaffoldBackgroundColor: ThemeColor.scaffoldBgColor,
-  appBarTheme: const AppBarTheme(
+  appBarTheme: AppBarTheme(
     elevation: 0,
-    iconTheme: IconThemeData(color: Colors.black),
+    iconTheme: const IconThemeData(color: Colors.white),
     foregroundColor: Colors.black,
+    backgroundColor: ThemeColor.primary,
+    titleTextStyle: titleTextStyle,
   ),
   textTheme:  const TextTheme(
     headlineLarge: headerStyle,
@@ -25,15 +27,15 @@ final ThemeData customTheme = ThemeData(
   elevatedButtonTheme: ElevatedButtonThemeData(
     style: ButtonStyle(
       padding: MaterialStateProperty.all<EdgeInsetsGeometry>(
-        const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
+        const EdgeInsets.symmetric(vertical: 20, horizontal: 30),
       ),
       shape: MaterialStateProperty.all<OutlinedBorder>(
         RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(20.0),
+          borderRadius: BorderRadius.circular(22.0),
         ),
       ),
-      foregroundColor: MaterialStateProperty.resolveWith(getColor),
-      backgroundColor: MaterialStateProperty.all(const Color(0xffA0E9FF)),
+      foregroundColor: MaterialStateProperty.all(Colors.white),
+      backgroundColor: MaterialStateProperty.all(const Color(0xFF698DC5)),
     ),
   ),
   inputDecorationTheme: InputDecorationTheme(

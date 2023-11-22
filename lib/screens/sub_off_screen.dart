@@ -14,7 +14,7 @@ class SubOffices extends StatelessWidget {
       appBar: AppBar(
         centerTitle: true,
         title: Text(
-          listofsub//'List of Sub offices',
+          listOfSub//'List of Sub offices',
         ),
       ),
       body: ListView.separated(

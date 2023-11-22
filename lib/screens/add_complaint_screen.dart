@@ -10,11 +10,13 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:line_icons/line_icons.dart';
 import 'package:provider/provider.dart';
 
+import '../constants/colors.dart';
 import '../constants/dept_data.dart';
+import '../constants/global_variables.dart';
 import '../models/dept_model.dart';
-import '../models/states_dist_model.dart';
 import '../widgets/docs_image_picker.dart';
 
 class AddComplaints extends StatefulWidget {
@@ -34,9 +36,7 @@ class _AddComplaintsState extends State<AddComplaints> {
   final _probDsc = TextEditingController();
   final _imgUrl = TextEditingController();
   final _cityName = TextEditingController();
-  List<StateModel> states = [];
   Dept? selectedOff;
-  String? selectOff;
   String? selectedSubOff;
   var _editedComplaint = ComplaintModel(
     id: '',
@@ -117,7 +117,7 @@ class _AddComplaintsState extends State<AddComplaints> {
 
   Widget showAlertBox() {
     return AlertDialog(
-      title: Text(submited.tr),
+      title: Text(submitted.tr),
       actions: [
         TextButton(
             onPressed: () {
@@ -146,11 +146,16 @@ class _AddComplaintsState extends State<AddComplaints> {
                   vertical: 30,
                 ),
                 children: <Widget>[
-                  probTitleTextField(),
+                  customTextFormField(
+                      _probName,
+                      const Icon(LineIcons.userCircle),
+                      problemName,
+                      aadharCardAddress),
                   const Divider(
                     height: 50,
                   ),
-                  cityTextField(),
+                  customTextFormField(
+                      _cityName, const Icon(LineIcons.city), cityName, "Anand"),
                   const Divider(
                     height: 50,
                   ),
@@ -162,7 +167,8 @@ class _AddComplaintsState extends State<AddComplaints> {
                   const Divider(
                     height: 50,
                   ),
-                  dscProbTextField(),
+                  customTextFormField(_probDsc,
+                      const Icon(LineIcons.fileContract), problem, aadhar),
                   const Divider(
                     height: 50,
                   ),
@@ -181,43 +187,27 @@ class _AddComplaintsState extends State<AddComplaints> {
     );
   }
 
-  Widget probTitleTextField() {
+  Widget customTextFormField(TextEditingController controller, Icon icon,
+      String labelText, String hintText) {
     return Row(
       children: [
-        addPadding(const Icon(Icons.person)),
+        addPadding(icon),
         Expanded(
           child: TextFormField(
-            controller: _probName,
+            maxLines: controller == _probDsc ? 5 : 1,
+            controller: controller,
             validator: (value) {
-              if (value!.isEmpty) return "Problem name field can't be empty";
+              if (controller.text.isEmpty) return "This field can't be empty.";
               return null;
             },
+            style: fieldStyle,
             autofocus: true,
             decoration: InputDecoration(
-              labelText: problemname.tr,
-              hintText: adharcardaddress.tr,
-            ),
-          ),
-        ),
-      ],
-    );
-  }
-
-  Widget cityTextField() {
-    return Row(
-      children: [
-        addPadding(const Icon(Icons.location_city)),
-        Expanded(
-          child: TextFormField(
-            controller: _cityName,
-            validator: (value) {
-              if (value!.isEmpty) return "City name field can't be empty";
-              return null;
-            },
-            autofocus: true,
-            decoration: InputDecoration(
-              labelText: cityname.tr,
-              hintText: "Unai",
+              fillColor: ThemeColor.textFieldBgColor,
+              filled: true,
+              hintStyle: hintStyle,
+              labelText: labelText.tr,
+              hintText: hintText.tr,
             ),
           ),
         ),
@@ -238,17 +228,20 @@ class _AddComplaintsState extends State<AddComplaints> {
               return null;
             },
             decoration: InputDecoration(
-              hintText: selectoffice.tr,
+              fillColor: ThemeColor.textFieldBgColor,
+              filled: true,
+              hintStyle: hintStyle,
+              hintText: selectOffice.tr,
             ),
             isExpanded: true,
             value: selectedOff,
             items: deptData
                 .map(
                   (Dept dept) => DropdownMenuItem(
-                    value: dept,
-                    child: Text(dept.name),
-                  ),
-                )
+                value: dept,
+                child: Text(dept.name,style: dropdownStyle,),
+              ),
+            )
                 .toList(),
             onChanged: (Dept? value) {
               setState(() {
@@ -273,49 +266,30 @@ class _AddComplaintsState extends State<AddComplaints> {
               }
               return null;
             },
-            hint: Text(suboffice.tr),
+            decoration: InputDecoration(
+              fillColor: ThemeColor.textFieldBgColor,
+              filled: true,
+              hintStyle: hintStyle,
+              hintText: (subOffice.tr),
+            ),
             isExpanded: true,
             value: selectedSubOff,
             items: selectedOff != null
                 ? selectedOff!.subDept.map((String subDeptName) {
-                    return DropdownMenuItem(
-                      value: subDeptName,
-                      child: Text(
-                        subDeptName,
-                      ),
-                    );
-                  }).toList()
+              return DropdownMenuItem(
+                value: subDeptName,
+                child: Text(
+                  subDeptName,
+                  style: dropdownStyle,
+                ),
+              );
+            }).toList()
                 : [],
             onChanged: (String? value) {
               setState(() {
                 selectedSubOff = value;
               });
             },
-          ),
-        ),
-      ],
-    );
-  }
-
-  Widget dscProbTextField() {
-    return Row(
-      children: [
-        addPadding(
-          const Icon(Icons.description),
-        ),
-        Expanded(
-          child: TextFormField(
-            maxLines: 5,
-            controller: _probDsc,
-            validator: (value) {
-              if (value!.isEmpty)
-                return "Problem description field can't be empty";
-              return null;
-            },
-            decoration: InputDecoration(
-              labelText: problem.tr,
-              hintText: adhar.tr,
-            ),
           ),
         ),
       ],

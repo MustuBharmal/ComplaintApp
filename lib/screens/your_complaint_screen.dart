@@ -67,7 +67,7 @@ class _YourComplaintsState extends State<YourComplaints> {
                   complaintData.isEmpty
                       ?  Center(
                       child: Text(
-                          Message.tr,
+                          message.tr,
                         style: const TextStyle(fontSize: 20),
                       ))
                       : ListView.builder(

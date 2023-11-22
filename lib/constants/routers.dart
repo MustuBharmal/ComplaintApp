@@ -65,7 +65,7 @@ Route<dynamic> generateRoute(RouteSettings routeSettings) {
         settings: routeSettings,
         builder: (_) => Scaffold(
           body: Center(
-            child: Text(NotExist.tr),
+            child: Text(notExist.tr),
           ),
         ),
       );
