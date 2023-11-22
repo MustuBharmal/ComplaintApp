@@ -1,3 +1,4 @@
+import 'package:complain_app/global_string.dart';
 import 'package:dialog_flowtter/dialog_flowtter.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -29,7 +30,7 @@ class _HelpingBotState extends State<HelpingBot> {
     return Scaffold(
       backgroundColor: Colors.blue.shade50,
       appBar: AppBar(
-        title: Text('Sahayak'.tr),
+        title: Text(botName.tr),
       ),
       body: Column(
         children: [
@@ -62,7 +63,7 @@ class _HelpingBotState extends State<HelpingBot> {
 
   sendMessage(String text) async {
     if (text.isEmpty) {
-      print('Message is empty'.tr);
+      print(emptyMsg.tr);
     } else {
       setState(
             () {

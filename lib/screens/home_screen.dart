@@ -1,3 +1,4 @@
+import 'package:complain_app/global_string.dart';
 import 'package:complain_app/provider/user_provider.dart';
 import 'package:complain_app/screens/add_complaint_screen.dart';
 import 'package:complain_app/screens/dept_screen.dart';
@@ -107,7 +108,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                                Text(
-                                "Welcome,".tr,
+                                welcome.tr,
                                 style:const  TextStyle(
                                     fontSize: 14, color: Colors.black),
                               ),
@@ -174,14 +175,14 @@ class _HomeScreenState extends State<HomeScreen> {
                                         MainAxisAlignment.spaceBetween,
                                     children: [
                                       Text(
-                                        "Departments".tr,
+                                        departments.tr,
                                         style: const TextStyle(
                                             fontSize: 14,
                                             fontWeight: FontWeight.bold,
                                             color: ThemeColor.white),
                                       ),
                                       Text(
-                                        "Sub-Offices".tr,
+                                        subOffices.tr,
                                         style: const TextStyle(
                                             fontSize: 13,
                                             fontWeight: FontWeight.w400,
@@ -201,7 +202,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                                   BorderRadius.circular(20)),
                                           child: Center(
                                             child: Text(
-                                              "View Departments".tr,
+                                              viewDepartments.tr,
                                               style: const TextStyle(
                                                   fontSize: 13,
                                                   color: ThemeColor.white),
@@ -268,7 +269,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Text(
-                                "Register Complaint".tr,
+                                registerComplaint.tr,
                                 style: const TextStyle(
                                     fontSize: 17,
                                     color: ThemeColor.black,
@@ -317,7 +318,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Text(
-                                "Select Language".tr,
+                                selectLanguage.tr,
                                 style: const TextStyle(
                                     fontSize: 17,
                                     color: ThemeColor.black,
@@ -381,7 +382,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     color: ThemeColor.primary,
                                   ),
                                   Text(
-                                    "Your Complaints".tr,
+                                    yourComplain.tr,
                                     style: const TextStyle(
                                         fontSize: 17,
                                         color: ThemeColor.black,
@@ -425,7 +426,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     color: ThemeColor.primary,
                                   ),
                                   Text(
-                                    "Helping Bot".tr,
+                                    helpingBot.tr,
                                     style: const TextStyle(
                                         fontSize: 17,
                                         color: ThemeColor.black,

@@ -85,69 +85,61 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:complain_app/global_string.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
+
 final db = FirebaseFirestore.instance;
 final firebase = FirebaseAuth.instance;
 const String complaintDataRef = 'complaints';
 
-
 List<Map<String, String>> listOfBahumaliBhavanSubOff = [
-  {'title': 'Non-Criminal'.tr, 'subtitle': nCrHint.tr},
-  {'title': 'Caste certificate'.tr, 'subtitle': cCHint.tr},
-  {'title': 'Narmada canal issues for Handicaps'.tr, 'subtitle': 'HINT:Nothing'},
-  {
-    'title': 'Works related to women Documentation work'.tr,
-    'subtitle':wDHint.tr
-  },
+  {'title': nonCriminal.tr, 'subtitle': nCrHint.tr},
+  {'title': casteCertificate.tr, 'subtitle': cCHint.tr},
+  {'title': narmadaCanalIssuesForHandicaps.tr, 'subtitle': 'HINT:Nothing'},
+  {'title': worksRelatedToWomenDocumentationWork.tr, 'subtitle': wDHint.tr},
 ];
 List<Map<String, String>> listOfCityMamlatdarSubOff = [
-  {'title': 'Property Rights'.tr, 'subtitle': pRHint.tr},
-  {'title': 'Income Certificate'.tr, 'subtitle':iCHint.tr},
-  {'title': 'Caste certificate'.tr, 'subtitle':cCHint.tr},
-  {'title': 'Water-id'.tr, 'subtitle': 'HINT : Nothing'},
-  {'title': 'Illegal land  Operation'.tr, 'subtitle': 'HINT :Nothing'},
+  {'title': propertyRights.tr, 'subtitle': pRHint.tr},
+  {'title': incomeCertificate.tr, 'subtitle': iCHint.tr},
+  {'title': casteCertificate.tr, 'subtitle': cCHint.tr},
+  {'title': waterId.tr, 'subtitle': 'HINT : ${pRHint.tr}'},
+  {'title': illegalLandOperation.tr, 'subtitle': 'HINT :Nothing'},
 ];
 List<Map<String, String>> listOfCorporateSubOff = [
-  {'title': 'Birth Certificate'.tr, 'subtitle':birthCerHint.tr},
-  {'title': 'Death Certificate'.tr, 'subtitle':deathCerHint.tr},
-  {'title': 'Property tax bill'.tr, 'subtitle': propertyTBHint.tr},
-  {'title': 'Aadharcard update'.tr, 'subtitle':aUpdateHint.tr},
-  {'title': 'Revenue Collection'.tr, 'subtitle':rCHint.tr},
-  {'title': 'Supervising Bridge /dam'.tr, 'subtitle':bridgeDHint.tr},
+  {'title': birthCertificate.tr, 'subtitle': birthCerHint.tr},
+  {'title': deathCertificate.tr, 'subtitle': deathCerHint.tr},
+  {'title': propertyTaxBill.tr, 'subtitle': propertyTBHint.tr},
+  {'title': aadharcardUpdate.tr, 'subtitle': aUpdateHint.tr},
+  {'title': revenueCollection.tr, 'subtitle': rCHint.tr},
+  {'title': supervisingBridgeDam.tr, 'subtitle': bridgeDHint.tr},
 ];
 List<Map<String, String>> listOfPrant2SubOff = [
-  {'title': 'Ashant Dharo Certificate'.tr, 'subtitle':aDHint.tr},
-  {'title': 'Land related work'.tr, 'subtitle':legalRWHint.tr},
-  {'title': 'Supervision of Municipality'.tr, 'subtitle':stateMHint.tr},
+  {'title': ashantDharoCertificate.tr, 'subtitle': aDHint.tr},
+  {'title': landRelatedWork.tr, 'subtitle': legalRWHint.tr},
+  {'title': supervisionOfMunicipality.tr, 'subtitle': stateMHint.tr},
   {
-    'title':
-    ' Certificate for organization of entertainment programs, arms license, Hotel license'.tr,
-    'subtitle':eAHCHint.tr
+    'title': certificateForOrganizationOfEntertainmentPrograms.tr,
+    'subtitle': eAHCHint.tr
   },
-  {'title': 'S.S.C., H.S.C. Exam'.tr, 'subtitle':sHEHint.tr},
-  {
-    'title': 'Pulse Polio Vaccination'.tr,
-    'subtitle': pPV.tr
-  },
+  {'title': sscHscExam.tr, 'subtitle': sHEHint.tr},
+  {'title': pulsePolioVaccination.tr, 'subtitle': pPV.tr},
 ];
 List<Map<String, String>> listOfPrant1SubOff = [
-  {'title': 'Ashant Dharo Certificate'.tr, 'subtitle':aDHint1.tr},
-  {'title': 'Land related work'.tr, 'subtitle': lRWHint1.tr},
-  {'title': 'Supervision of Municipality'.tr, 'subtitle':sMHint1.tr},
+  {'title': ashantDharoCertificate.tr, 'subtitle': aDHint1.tr},
+  {'title': landRelatedWork.tr, 'subtitle': lRWHint1.tr},
+  {'title': supervisionOfMunicipality.tr, 'subtitle': sMHint1.tr},
   {
-    'title':
-    ' Certificate for organization of entertainment programs, arms license, Hotel license'.tr,
+    'title': certificateForOrganizationOfEntertainmentPrograms.tr,
     'subtitle': 'Nothing',
   },
   {'title': 'S.S.C., H.S.C. Exam'.tr, 'subtitle': 'Nothing'},
   {
     'title': 'Pulse Polio Vaccination'.tr,
-    'subtitle':pPV1.tr,
+    'subtitle': pPV1.tr,
   },
 ];
 List<Map<String, String>> listOfNewCollectorSubOff = [
-  {'title': 'Land revenue and Other Taxes'.tr, 'subtitle':lRHint.tr},
-  {'title': 'Land records and their updates'.tr, 'subtitle':lRUHint.tr},
-  {'title': 'Land rights'.tr, 'subtitle'.tr: landRightHint.tr},
-  {'title': 'Urban land ceilling'.tr, 'subtitle':uCHint.tr},
-  {'title': 'Illegal land  Operation'.tr, 'subtitle':iOHint.tr},
+  {'title': landRevenueAndOtherTaxes.tr, 'subtitle': lRHint.tr},
+  {'title': landRecordsAndTheirUpdates.tr, 'subtitle': lRUHint.tr},
+  {'title': landRights.tr, 'subtitle'.tr: landRightHint.tr},
+  {'title': urbanLandCeilling.tr, 'subtitle': uCHint.tr},
+  {'title': illegalLand.tr, 'subtitle': iOHint.tr},
 ];

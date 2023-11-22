@@ -105,3 +105,53 @@ String aadharCardAddress="Aadhar card address";
 String cityName='City Name';
 String selectOffice='Select Office';
 String subOffice='Select Sub-office';
+String botName='Sahayak';
+String emptyMsg='Message is empty';
+String yourComplain='Your Complaints';
+String listDetail='/list-details-screen';
+
+
+
+
+String nonCriminal = 'Non-Criminal';
+String casteCertificate = 'Caste certificate';
+String narmadaCanalIssuesForHandicaps = 'Narmada canal issues for Handicaps';
+String worksRelatedToWomenDocumentationWork = 'Works related to women Documentation work';
+
+String propertyRights = 'Property Rights';
+String incomeCertificate = 'Income Certificate';
+String waterId = 'Water-id';
+String illegalLandOperation = 'Illegal land Operation';
+
+String birthCertificate = 'Birth Certificate';
+String deathCertificate = 'Death Certificate';
+String propertyTaxBill = 'Property tax bill';
+String aadharcardUpdate = 'Aadharcard update';
+String revenueCollection = 'Revenue Collection';
+String supervisingBridgeDam = 'Supervising Bridge /dam';
+
+String ashantDharoCertificate = 'Ashant Dharo Certificate';
+String landRelatedWork = 'Land related work';
+String supervisionOfMunicipality = 'Supervision of Municipality';
+String certificateForOrganizationOfEntertainmentPrograms = 'Certificate for organization of entertainment programs, arms license, Hotel license';
+String sscHscExam = 'S.S.C., H.S.C. Exam';
+String pulsePolioVaccination = 'Pulse Polio Vaccination';
+
+String landRevenueAndOtherTaxes = 'Land revenue and Other Taxes';
+String landRecordsAndTheirUpdates = 'Land records and their updates';
+String landRights = 'Land rights';
+String urbanLandCeilling = 'Urban land ceilling';
+String illegalLand = 'Illegal land Operation';
+
+String homeScreen = 'Home Screen';
+String changeLanguage = 'Change Language';
+String listOfComplaints = 'List Of Complaints';
+String welcome = 'Welcome,';
+String addDocument = 'Add document';
+String documentAdded = 'Document Added!';
+String helpingBot = 'Helping Bot';
+String registerComplaint = 'Register Complaint';
+String departments = 'Departments';
+String subOffices = 'Sub-Offices';
+String viewDepartments = 'View Departments';
+String selectLanguage = 'Select Language';
