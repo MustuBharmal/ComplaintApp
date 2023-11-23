@@ -91,55 +91,55 @@ final firebase = FirebaseAuth.instance;
 const String complaintDataRef = 'complaints';
 
 List<Map<String, String>> listOfBahumaliBhavanSubOff = [
-  {'title': nonCriminal.tr, 'subtitle': nCrHint.tr},
-  {'title': casteCertificate.tr, 'subtitle': cCHint.tr},
-  {'title': narmadaCanalIssuesForHandicaps.tr, 'subtitle': 'HINT:Nothing'},
-  {'title': worksRelatedToWomenDocumentationWork.tr, 'subtitle': wDHint.tr},
+  {'title': nonCriminal, 'subtitle': nCrHint},
+  {'title': casteCertificate, 'subtitle': cCHint},
+  {'title': narmadaCanalIssuesForHandicaps, 'subtitle': 'HINT:Nothing'},
+  {'title': worksRelatedToWomenDocumentationWork, 'subtitle': wDHint},
 ];
 List<Map<String, String>> listOfCityMamlatdarSubOff = [
-  {'title': propertyRights.tr, 'subtitle': pRHint.tr},
-  {'title': incomeCertificate.tr, 'subtitle': iCHint.tr},
-  {'title': casteCertificate.tr, 'subtitle': cCHint.tr},
-  {'title': waterId.tr, 'subtitle': 'HINT : ${pRHint.tr}'},
-  {'title': illegalLandOperation.tr, 'subtitle': 'HINT :Nothing'},
+  {'title': propertyRights, 'subtitle':pRHint },
+  {'title': incomeCertificate, 'subtitle': iCHint},
+  {'title': casteCertificate, 'subtitle': cCHint},
+  {'title': waterId, 'subtitle': 'HINT :Nothing'},
+  {'title': illegalLandOperation, 'subtitle': 'HINT :Nothing'},
 ];
 List<Map<String, String>> listOfCorporateSubOff = [
-  {'title': birthCertificate.tr, 'subtitle': birthCerHint.tr},
-  {'title': deathCertificate.tr, 'subtitle': deathCerHint.tr},
-  {'title': propertyTaxBill.tr, 'subtitle': propertyTBHint.tr},
-  {'title': aadharcardUpdate.tr, 'subtitle': aUpdateHint.tr},
-  {'title': revenueCollection.tr, 'subtitle': rCHint.tr},
-  {'title': supervisingBridgeDam.tr, 'subtitle': bridgeDHint.tr},
+  {'title': birthCertificate, 'subtitle': birthCerHint},
+  {'title': deathCertificate, 'subtitle': deathCerHint},
+  {'title': propertyTaxBill, 'subtitle': propertyTBHint},
+  {'title': aadharcardUpdate, 'subtitle': aUpdateHint},
+  {'title': revenueCollection, 'subtitle': rCHint},
+  {'title': supervisingBridgeDam, 'subtitle': bridgeDHint},
 ];
 List<Map<String, String>> listOfPrant2SubOff = [
-  {'title': ashantDharoCertificate.tr, 'subtitle': aDHint.tr},
-  {'title': landRelatedWork.tr, 'subtitle': legalRWHint.tr},
-  {'title': supervisionOfMunicipality.tr, 'subtitle': stateMHint.tr},
+  {'title': ashantDharoCertificate, 'subtitle': aDHint},
+  {'title': landRelatedWork, 'subtitle': legalRWHint},
+  {'title': supervisionOfMunicipality, 'subtitle': stateMHint},
   {
-    'title': certificateForOrganizationOfEntertainmentPrograms.tr,
-    'subtitle': eAHCHint.tr
+    'title': certificateForOrganizationOfEntertainmentPrograms,
+    'subtitle': eAHCHint
   },
-  {'title': sscHscExam.tr, 'subtitle': sHEHint.tr},
-  {'title': pulsePolioVaccination.tr, 'subtitle': pPV.tr},
+  {'title': sscHscExam, 'subtitle': sHEHint},
+  {'title': pulsePolioVaccination, 'subtitle': pPV},
 ];
 List<Map<String, String>> listOfPrant1SubOff = [
-  {'title': ashantDharoCertificate.tr, 'subtitle': aDHint1.tr},
-  {'title': landRelatedWork.tr, 'subtitle': lRWHint1.tr},
-  {'title': supervisionOfMunicipality.tr, 'subtitle': sMHint1.tr},
+  {'title': ashantDharoCertificate, 'subtitle': aDHint1},
+  {'title': landRelatedWork, 'subtitle': lRWHint1},
+  {'title': supervisionOfMunicipality, 'subtitle': sMHint1},
   {
-    'title': certificateForOrganizationOfEntertainmentPrograms.tr,
+    'title': certificateForOrganizationOfEntertainmentPrograms,
     'subtitle': 'Nothing',
   },
-  {'title': 'S.S.C., H.S.C. Exam'.tr, 'subtitle': 'Nothing'},
+  {'title': 'S.S.C., H.S.C. Exam', 'subtitle': 'Nothing'},
   {
-    'title': 'Pulse Polio Vaccination'.tr,
-    'subtitle': pPV1.tr,
+    'title': 'Pulse Polio Vaccination',
+    'subtitle': pPV1,
   },
 ];
 List<Map<String, String>> listOfNewCollectorSubOff = [
-  {'title': landRevenueAndOtherTaxes.tr, 'subtitle': lRHint.tr},
-  {'title': landRecordsAndTheirUpdates.tr, 'subtitle': lRUHint.tr},
-  {'title': landRights.tr, 'subtitle'.tr: landRightHint.tr},
-  {'title': urbanLandCeilling.tr, 'subtitle': uCHint.tr},
-  {'title': illegalLand.tr, 'subtitle': iOHint.tr},
+  {'title': landRevenueAndOtherTaxes, 'subtitle': lRHint},
+  {'title': landRecordsAndTheirUpdates, 'subtitle': lRUHint},
+  {'title': landRights, 'subtitle': landRightHint},
+  {'title': urbanLandCeilling, 'subtitle': uCHint},
+  {'title': illegalLand, 'subtitle': iOHint},
 ];

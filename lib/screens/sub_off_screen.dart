@@ -1,5 +1,6 @@
 import 'package:complain_app/global_string.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class SubOffices extends StatelessWidget {
   const SubOffices({super.key});
@@ -14,7 +15,7 @@ class SubOffices extends StatelessWidget {
       appBar: AppBar(
         centerTitle: true,
         title: Text(
-          listOfSub//'List of Sub offices',
+          listOfSub.tr//'List of Sub offices',
         ),
       ),
       body: ListView.separated(
@@ -35,13 +36,13 @@ class SubOffices extends StatelessWidget {
               ),
             ),
             title: Text(
-              list[index]['title']!,
+              list[index]['title']!.tr,
               style: const TextStyle(
                   fontSize: 20,
                   color: Colors.blue,
                   fontWeight: FontWeight.bold),
             ),
-            subtitle: Text(list[index]['subtitle']!),
+            subtitle: Text(list[index]['subtitle']!.tr),
           );
         },
       ),
