@@ -94,7 +94,7 @@ List<Map<String, String>> listOfBahumaliBhavanSubOff = [
   {'title': nonCriminal, 'subtitle': nCrHint},
   {'title': casteCertificate, 'subtitle': cCHint},
   {'title': narmadaCanalIssuesForHandicaps, 'subtitle': 'HINT:Nothing'},
-  {'title': worksRelatedToWomenDocumentationWork, 'subtitle': wDHint},
+  {'title': worksRelatedToWM, 'subtitle': wDHint},
 ];
 List<Map<String, String>> listOfCityMamlatdarSubOff = [
   {'title': propertyRights, 'subtitle':pRHint },

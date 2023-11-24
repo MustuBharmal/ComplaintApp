@@ -93,7 +93,6 @@ String targetPlatformLinuxOs =
     'you can reconfigure this by running the FlutterFire CLI again.';
 String defaultMsg =
     'DefaultFirebaseOptions are not supported for this platform.';
-
 String message = 'Their is no complaint from your side';
 String save = 'SAVE';
 String problem = "Problem Description";
@@ -109,40 +108,32 @@ String botName='Sahayak';
 String emptyMsg='Message is empty';
 String yourComplain='Your Complaints';
 String listDetail='/list-details-screen';
-
-
-
-
 String nonCriminal = 'Non-Criminal';
 String casteCertificate = 'Caste certificate';
 String narmadaCanalIssuesForHandicaps = 'Narmada canal issues for Handicaps';
-String worksRelatedToWomenDocumentationWork = 'Works related to women Documentation work';
-
+String worksRelatedToWM = 'Works related to women';
+String documets='Documentation work';
 String propertyRights = 'Property Rights';
 String incomeCertificate = 'Income Certificate';
 String waterId = 'Water-id';
 String illegalLandOperation = 'Illegal land Operation';
-
 String birthCertificate = 'Birth Certificate';
 String deathCertificate = 'Death Certificate';
 String propertyTaxBill = 'Property tax bill';
 String aadharcardUpdate = 'Aadharcard update';
 String revenueCollection = 'Revenue Collection';
 String supervisingBridgeDam = 'Supervising Bridge /dam';
-
 String ashantDharoCertificate = 'Ashant Dharo Certificate';
 String landRelatedWork = 'Land related work';
 String supervisionOfMunicipality = 'Supervision of Municipality';
 String certificateForOrganizationOfEntertainmentPrograms = 'Certificate for organization of entertainment programs, arms license, Hotel license';
 String sscHscExam = 'S.S.C., H.S.C. Exam';
 String pulsePolioVaccination = 'Pulse Polio Vaccination';
-
 String landRevenueAndOtherTaxes = 'Land revenue and Other Taxes';
 String landRecordsAndTheirUpdates = 'Land records and their updates';
 String landRights = 'Land rights';
 String urbanLandCeilling = 'Urban land ceilling';
 String illegalLand = 'Illegal land Operation';
-
 String homeScreen = 'Home Screen';
 String changeLanguage = 'Change Language';
 String listOfComplaints = 'List Of Complaints';
@@ -156,3 +147,9 @@ String subOffices = 'Sub-Offices';
 String viewDepartments = 'View Departments';
 String selectLanguage = 'Select Language';
 String login="login";
+String workForVillage='Works for the villages of Rajkot district';
+String talatiMinister='Work for Talati minister';
+String recordAndDocu='Keeping records and documentation';
+String educationAndHealth= 'Education and health related issues';
+String welfareAndDevelop='Public welfare and development';
+String foodAndCivil='Food and civil supplies';
