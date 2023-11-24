@@ -29,7 +29,7 @@ class ComplaintCard extends StatelessWidget {
     var deviceSize = MediaQuery.of(context).size;
     return SingleChildScrollView(
       child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 20,horizontal: 30),
+        padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 30),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -90,7 +90,6 @@ class ComplaintCard extends StatelessWidget {
                         const SizedBox(
                           height: 6,
                         ),
-
                         Flexible(
                           child: Text(
                             'Problem Description :- $probDsc',
@@ -120,19 +119,16 @@ class ComplaintCard extends StatelessWidget {
                                   status.toUpperCase(),
                                   style: TextStyle(
                                     fontSize: 18,
-                                    color: status == 'Rejected'
+                                    color: status == 'rejected'
                                         ? Colors.red
-                                        : status == 'Solved'
+                                        : status == 'resolved'
                                             ? Colors.green
-                                            : status == 'In Progress'
+                                            : status == 'ongoing'
                                                 ? Colors.blue
-                                                : status == 'Passed'
-                                                    ? Colors.cyan
-                                                    : Colors.deepOrange,
+                                                : Colors.orange,
                                     fontWeight: FontWeight.bold,
                                   ),
                                 ),
-
                               ],
                             ),
                           ),
