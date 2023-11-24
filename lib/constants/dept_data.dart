@@ -6,68 +6,69 @@ import 'package:get/get.dart';
 List<Dept> deptData = [
   Dept(
     id: 'o1',
-    name:  newCollOff,            //'New collector office',
+    name:  newCollOff.tr,            //'New collector office',
     subDept: [
       landRevenueAndOtherTaxes.tr,
-      landRecordsAndTheirUpdates,
-      landRights,
-      urbanLandCeilling,
-      'Education and health related issues',
-      'Public welfare and development',
-      'Food and civil supplies',
+      landRecordsAndTheirUpdates.tr,
+      landRights.tr,
+      urbanLandCeilling.tr,
+      educationAndHealth.tr,
+      welfareAndDevelop.tr,
+      foodAndCivil.tr
     ],
   ),
   Dept(
     id: 'o2',
     name: cityMamlatdarOff.tr,   // 'City Mamlatdar office',
     subDept: [
-      'Land revenue',
-      'Property rights',
-      'Keeping records and documentation',
-      'Illegal land operations',
-      'Income certificate',
-      'Work for Talati minister',
-      'Cast certificate',
-      'Water -Id',
+      landRevenueAndOtherTaxes.tr,
+      propertyRights.tr,
+      recordAndDocu.tr,
+      illegalLandOperation.tr,
+      incomeCertificate.tr,
+      talatiMinister.tr,
+      casteCertificate.tr,
+      waterId.tr
     ],
   ),
+
   Dept(
     id: 'o3',
     name: prant1.tr,//'Prant-I',
     subDept: [
-      'Ashant dharo certificate',
-      'Land related works',
+      ashantDharoCertificate.tr,
+      landRelatedWork.tr
     ],
   ),
   Dept(
     id: 'o4',
     name: prant2.tr,//'Prant-II',
     subDept: [
-      'Land related issues',
-      'Works for the villages of Rajkot district',
+      landRelatedWork.tr,
+      workForVillage.tr,
     ],
   ),
   Dept(
     id: 'o4',
     name: bahumaliBhavan.tr,//'Bahumadi bhavan',
     subDept: [
-      'Non- criminal',
-      'Cast certificate',
-      'Narmada canal issues',
-      'For Handicaps',
-      'Work related to women',
-      'Documention work',
+      nonCriminal.tr,
+      casteCertificate.tr,
+     narmadaCanalIssuesForHandicaps.tr,
+      worksRelatedToWM.tr,
+      documets.tr,
     ],
   ),
   Dept(
     id: 'o5',
     name: corporateOff.tr,//'Corporation office',
     subDept: [
-      'Birth certificate',
-      'Death certificate',
-      'Property tax bill',
-      'Supervising Bridge/dam',
-      'Aadarcard update',
+      birthCertificate.tr,
+      deathCertificate.tr,
+      propertyTaxBill.tr,
+      supervisingBridgeDam.tr,
+      aadharcardUpdate.tr
     ],
   ),
 ];
+

@@ -49,8 +49,7 @@ class LocaleString extends Translations {
           nonCriminal: nonCriminal,
           casteCertificate: casteCertificate,
           narmadaCanalIssuesForHandicaps: narmadaCanalIssuesForHandicaps,
-          worksRelatedToWomenDocumentationWork:
-              worksRelatedToWomenDocumentationWork,
+          worksRelatedToWM: worksRelatedToWM,
           propertyRights: propertyRights,
           incomeCertificate: incomeCertificate,
           waterId: waterId,
@@ -85,6 +84,13 @@ class LocaleString extends Translations {
           subOffices: subOffices,
           viewDepartments: viewDepartments,
           selectLanguage: selectLanguage,
+          workForVillage: workForVillage,
+          talatiMinister: talatiMinister,
+          recordAndDocu: recordAndDocu,
+          educationAndHealth: educationAndHealth,
+          welfareAndDevelop: welfareAndDevelop,
+          foodAndCivil: foodAndCivil,
+          documets:documets,
         },
 //HINDI LANGUAGE
         'hi_IN': {
@@ -195,8 +201,7 @@ class LocaleString extends Translations {
           nonCriminal: 'गैर आपराधिक',
           casteCertificate: 'कास्ट सर्टिफिकेट',
           narmadaCanalIssuesForHandicaps: 'विकलांगों के लिए नर्मदा नहर मुद्दे',
-          worksRelatedToWomenDocumentationWork:
-              'महिलाओं से संबंधित कार्य दस्तावेज़ीकरण कार्य',
+          worksRelatedToWM: 'महिलाओं से संबंधित कार्य दस्तावेज़ीकरण कार्य',
           propertyRights: 'संपत्ति के अधिकार',
           incomeCertificate: 'आय प्रमाण पत्र',
           casteCertificate: 'जाति प्रमाण पत्र',
@@ -229,6 +234,13 @@ class LocaleString extends Translations {
           selectLanguage: "भाषा चुनें",
           helpingBot: "सहायक बॉट",
           welcome: "स्वागत,",
+          workForVillage: 'राजकोट जिले के गाँवों के लिए काम करता है',
+          talatiMinister: 'तलाटी मंत्री के लिए काम करता है',
+          recordAndDocu: 'रिकॉर्ड और प्रलेखन बनाए रखना',
+          educationAndHealth: 'शिक्षा और स्वास्थ्य से संबंधित मुद्दे',
+          welfareAndDevelop: 'सार्वजनिक कल्याण और विकास',
+          foodAndCivil: 'खाद्य और नागरिक आपूर्ति',
+          documets : 'प्रलेखन कार्य',
         },
 //GUJARATI LANGUAGE
         'gu_IN': {
@@ -336,8 +348,7 @@ class LocaleString extends Translations {
           nonCriminal: 'ગૈર આપરાધિક',
           casteCertificate: 'જાતિ પ્રમાણપત્ર',
           narmadaCanalIssuesForHandicaps: 'વિકલાંગો માટે નર્મદા કેનાલના મુદ્દા',
-          worksRelatedToWomenDocumentationWork:
-              'સતીના દસ્તાવેજ કાર્યનાં સંબંધિત કામ',
+          worksRelatedToWM: 'સતીના દસ્તાવેજ કાર્યનાં સંબંધિત કામ',
           propertyRights: 'સંપત્તિના હક',
           incomeCertificate: 'આવક પ્રમાણપત્ર',
           waterId: 'જળ-આઈડી',
@@ -368,7 +379,14 @@ class LocaleString extends Translations {
           viewDepartments: 'વિભાગો જુઓ',
           selectLanguage: 'ભાષા પસંદ કરો',
           helpingBot: 'સહાય બોટ',
-          welcome: 'સ્વાગત છે,'
+          welcome: 'સ્વાગત છે,',
+          workForVillage: 'રાજકોટ જિલ્લાના ગામો માટે કામ કરે છે',
+          talatiMinister: 'તલાટી મંત્રી માટે કામ કરે છે',
+          recordAndDocu: 'રેકોર્ડ અને દસ્તાવેજ ધરાવવી',
+          educationAndHealth: 'શિક્ષા અને આરોગ્ય સંબંધિત મુદ્દાઓ',
+          welfareAndDevelop: 'જનકલ્યાણ અને વિકાસ',
+          foodAndCivil: 'ખોરાક અને સિવિલ સરપંચ',
+          documets:'દસ્તાવેજ કામ',
         }
       };
 }
