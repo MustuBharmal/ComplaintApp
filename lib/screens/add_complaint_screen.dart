@@ -5,7 +5,6 @@ import 'package:complain_app/global_string.dart';
 import 'package:complain_app/models/complaint_model.dart';
 import 'package:complain_app/provider/complaint_provider.dart';
 import 'package:complain_app/provider/user_provider.dart';
-import 'package:complain_app/widgets/show_dialog.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
@@ -14,9 +13,8 @@ import 'package:line_icons/line_icons.dart';
 import 'package:provider/provider.dart';
 
 import '../constants/colors.dart';
-import '../constants/dept_data.dart';
 import '../constants/global_variables.dart';
-import '../models/dept_model.dart';
+import '../models/prob_model.dart';
 import '../widgets/docs_image_picker.dart';
 
 class AddComplaints extends StatefulWidget {
@@ -29,15 +27,18 @@ class AddComplaints extends StatefulWidget {
 }
 
 class _AddComplaintsState extends State<AddComplaints> {
-  List<Dept> dept = deptData;
+  // List<Problem> dept = deptData;
   File? _selectedImage;
   final _form = GlobalKey<FormState>();
   final _probName = TextEditingController();
   final _probDsc = TextEditingController();
   final _imgUrl = TextEditingController();
   final _cityName = TextEditingController();
-  Dept? selectedOff;
+  String selectedProb = '';
+
+  String? selectedOff;
   String? selectedSubOff;
+  List<Problem> probData = [];
   var _editedComplaint = ComplaintModel(
     id: '',
     probName: '',
@@ -62,6 +63,18 @@ class _AddComplaintsState extends State<AddComplaints> {
     _imgUrl.dispose();
     _probDsc.dispose();
     super.dispose();
+  }
+
+  @override
+  void didChangeDependencies() {
+    Provider.of<UserProvider>(context).fetchProbData().then((data) {
+      setState(() {
+        probData = data;
+      });
+    }).catchError((error) {
+      print("Error to load data: $error");
+    });
+    super.didChangeDependencies();
   }
 
   Future<void> _saveForm() async {
@@ -92,7 +105,7 @@ class _AddComplaintsState extends State<AddComplaints> {
         city: _cityName.text,
         state:
             Provider.of<UserProvider>(context, listen: false).userModel!.state!,
-        off: selectedOff!.name,
+        off: selectedOff!,
         subOff: selectedSubOff!,
         dist:
             Provider.of<UserProvider>(context, listen: false).userModel!.dist!,
@@ -111,8 +124,14 @@ class _AddComplaintsState extends State<AddComplaints> {
     setState(() {
       _isLoading = false;
     });
-    Navigator.of(context)
-        .push(MaterialPageRoute(builder: (context) => const ShowDialog()));
+    ScaffoldMessenger.of(context).clearSnackBars();
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(
+        elevation: 5,
+        content: Text('Your Complaint is submitted'),
+      ),
+    );
+    Navigator.of(context).pop();
   }
 
   Widget showAlertBox() {
@@ -146,11 +165,12 @@ class _AddComplaintsState extends State<AddComplaints> {
                   vertical: 30,
                 ),
                 children: <Widget>[
-                  customTextFormField(
-                      _probName,
-                      const Icon(LineIcons.userCircle),
-                      problemName,
-                      aadharCardAddress),
+                  // customTextFormField(
+                  //     _probName,
+                  //     const Icon(LineIcons.userCircle),
+                  //     problemName,
+                  //     aadharCardAddress),
+                  problemName(),
                   const Divider(
                     height: 50,
                   ),
@@ -159,10 +179,12 @@ class _AddComplaintsState extends State<AddComplaints> {
                   const Divider(
                     height: 50,
                   ),
+                  const Text("Department:- "),
                   deptDropdown(),
                   const Divider(
                     height: 50,
                   ),
+                  const Text("Sub Department:- "),
                   subDeptDropdown(),
                   const Divider(
                     height: 50,
@@ -215,18 +237,12 @@ class _AddComplaintsState extends State<AddComplaints> {
     );
   }
 
-  Widget deptDropdown() {
+  Widget problemName() {
     return Row(
       children: [
         addPadding(const Icon(Icons.house)),
         Expanded(
           child: DropdownButtonFormField(
-            validator: (value) {
-              if (selectedOff?.name == null) {
-                return "Office field can't be empty";
-              }
-              return null;
-            },
             decoration: InputDecoration(
               fillColor: ThemeColor.textFieldBgColor,
               filled: true,
@@ -234,19 +250,26 @@ class _AddComplaintsState extends State<AddComplaints> {
               hintText: selectOffice.tr,
             ),
             isExpanded: true,
-            value: selectedOff,
-            items: deptData
+            items: probData
                 .map(
-                  (Dept dept) => DropdownMenuItem(
-                value: dept,
-                child: Text(dept.name,style: dropdownStyle,),
-              ),
-            )
+                  (Problem prob) => DropdownMenuItem<String>(
+                    value: prob.probName,
+                    child: Text(
+                      prob.probName,
+                      style: dropdownStyle,
+                    ),
+                  ),
+                )
                 .toList(),
-            onChanged: (Dept? value) {
+            onChanged: (value) {
               setState(() {
-                selectedOff = value!;
-                selectedSubOff = null;
+                selectedProb = value!;
+                selectedOff = probData
+                    .firstWhere((prob) => prob.probName == selectedProb)
+                    .dept;
+                selectedSubOff = probData
+                    .firstWhere((prob) => prob.probName == selectedProb)
+                    .subDept;
               });
             },
           ),
@@ -255,48 +278,36 @@ class _AddComplaintsState extends State<AddComplaints> {
     );
   }
 
+  Widget deptDropdown() {
+    return Row(
+      children: [
+        addPadding(const Icon(Icons.house)),
+        Expanded(
+            child: Text(
+          selectedProb == ''
+              ? "Select Department"
+              : probData
+                  .firstWhere((prob) => prob.probName == selectedProb)
+                  .dept,
+        )),
+      ],
+    );
+  }
   Widget subDeptDropdown() {
     return Row(
       children: [
         addPadding(const Icon(Icons.house)),
         Expanded(
-          child: DropdownButtonFormField<String>(
-            validator: (value) {
-              if (selectedSubOff == null) {
-                return "Sub-office field can't be empty";
-              }
-              return null;
-            },
-            decoration: InputDecoration(
-              fillColor: ThemeColor.textFieldBgColor,
-              filled: true,
-              hintStyle: hintStyle,
-              hintText: (subOffice.tr),
-            ),
-            isExpanded: true,
-            value: selectedSubOff,
-            items: selectedOff != null
-                ? selectedOff!.subDept.map((String subDeptName) {
-              return DropdownMenuItem(
-                value: subDeptName,
-                child: Text(
-                  subDeptName,
-                  style: dropdownStyle,
-                ),
-              );
-            }).toList()
-                : [],
-            onChanged: (String? value) {
-              setState(() {
-                selectedSubOff = value;
-              });
-            },
-          ),
-        ),
+            child: Text(
+              selectedProb == ''
+                  ? "Select Department"
+                  : probData
+                  .firstWhere((prob) => prob.probName == selectedProb)
+                  .subDept,
+            )),
       ],
     );
   }
-
   Widget submitButton() {
     return ElevatedButton(
       onPressed: () {

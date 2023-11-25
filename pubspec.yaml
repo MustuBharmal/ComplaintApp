@@ -78,6 +78,7 @@ flutter:
   assets:
     - assets/images/profileImg.png
     - assets/states-and-districts.json
+    - assets/prob_dept_subDept.json
     - assets/images/notification_1.png
     - assets/images/notification_2.png
     - assets/images/add_event.png

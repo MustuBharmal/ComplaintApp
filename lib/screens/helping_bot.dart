@@ -34,6 +34,7 @@ class _HelpingBotState extends State<HelpingBot> {
       ),
       body: Column(
         children: [
+          messages.isEmpty? Center(child: Text("Hi How Can I Help you!")):
           Expanded(child: MessagesScreen(messages: messages)),
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),

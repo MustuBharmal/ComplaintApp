@@ -13,6 +13,7 @@ class ThemeColor {
   static const Color primary = Color(0xFF3C6EE0);
   static const Color secondary = Color(0xFF2554C2);
 
+
   static const Color scaffoldBgColor = Color(0xFFF3F4F3);
   static const Color textFieldBgColor = Color(0xFFDFE5F0);
   static const Color textFieldHintColor = Color(0xFF333333);

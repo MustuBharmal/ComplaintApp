@@ -103,7 +103,7 @@ class _AuthScreenState extends State<AuthScreen>
           'phoneNo': _phoneNoController.text,
           'dist': selectedDist!.toLowerCase(),
           'state': selectedState.toLowerCase(),
-          'role': 'admin'
+          'role': 'citizen'
         });
       } on FirebaseAuthException catch (error) {
         if (error.code == 'email-already-in-use') {
@@ -416,11 +416,12 @@ class _AuthScreenState extends State<AuthScreen>
         ),
         Expanded(
           child: DropdownButtonFormField(
-            hint: const Text('Select State'),
+
             decoration: InputDecoration(
               fillColor: ThemeColor.textFieldBgColor,
               filled: true,
               hintStyle: hintStyle,
+              hintText: ('Select State'),
             ),
             isExpanded: true,
             onChanged: (selectedValue) {
