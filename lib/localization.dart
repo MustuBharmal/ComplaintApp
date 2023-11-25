@@ -37,7 +37,7 @@ class LocaleString extends Translations {
           aadhar: aadhar,
           addComplaint: addComplaint,
           submitted: submitted,
-          problemName: problemName,
+          selectProb: selectProb,
           aadharCardAddress: aadharCardAddress,
           cityName: cityName,
           selectOffice: selectOffice,
@@ -57,7 +57,7 @@ class LocaleString extends Translations {
           birthCertificate: birthCertificate,
           deathCertificate: deathCertificate,
           propertyTaxBill: propertyTaxBill,
-          aadharcardUpdate: aadharcardUpdate,
+          aadharCardUpdate: aadharCardUpdate,
           revenueCollection: revenueCollection,
           supervisingBridgeDam: supervisingBridgeDam,
           ashantDharoCertificate: ashantDharoCertificate,
@@ -90,7 +90,7 @@ class LocaleString extends Translations {
           educationAndHealth: educationAndHealth,
           welfareAndDevelop: welfareAndDevelop,
           foodAndCivil: foodAndCivil,
-          documets:documets,
+          documents:documents,
         },
 //HINDI LANGUAGE
         'hi_IN': {
@@ -185,7 +185,7 @@ class LocaleString extends Translations {
           aadhar: "आधार समस्या के बारे में",
           addComplaint: 'शिकायत जोड़ें',
           submitted: 'आपकी शिकायत प्रस्तुत कर दी गई है',
-          problemName: "समस्या का नाम",
+          selectProb: "समस्या का नाम",
           aadharCardAddress: "आधार कार्ड का पता",
           cityName: 'शहर का नाम',
           botName: 'सहायक',
@@ -210,7 +210,7 @@ class LocaleString extends Translations {
           birthCertificate: 'जन्म प्रमाणपत्र',
           deathCertificate: 'मृत्यु प्रमाण पत्र',
           propertyTaxBill: 'संपत्ति कर बिल',
-          aadharcardUpdate: 'आधार कार्ड अपडेट',
+          aadharCardUpdate: 'आधार कार्ड अपडेट',
           revenueCollection: 'राजस्व संग्रह',
           supervisingBridgeDam: 'पुल/बांध का पर्यवेक्षण करना',
           ashantDharoCertificate: 'अशांत धारो प्रमाणपत्र',
@@ -240,7 +240,7 @@ class LocaleString extends Translations {
           educationAndHealth: 'शिक्षा और स्वास्थ्य से संबंधित मुद्दे',
           welfareAndDevelop: 'सार्वजनिक कल्याण और विकास',
           foodAndCivil: 'खाद्य और नागरिक आपूर्ति',
-          documets : 'प्रलेखन कार्य',
+          documents : 'प्रलेखन कार्य',
         },
 //GUJARATI LANGUAGE
         'gu_IN': {
@@ -333,7 +333,7 @@ class LocaleString extends Translations {
           addComplaint: 'ફરિયાદ ઉમેરો',
           submitted: 'તમારી ફરિયાદ સબમિટ છે',
           aadhar: "આધાર સમસ્યા વિશે",
-          problemName: "સમસ્યાનું નામ",
+          selectProb: "સમસ્યાનું નામ",
           aadharCardAddress: "આધાર કાર્ડ સરનામું",
           cityName: 'શહેરનું નામ',
           selectOffice: 'ઓફિસ પસંદ કરો',
@@ -356,7 +356,7 @@ class LocaleString extends Translations {
           birthCertificate: 'જન્મ પ્રમાણપત્ર',
           deathCertificate: 'મૃત્યુ પ્રમાણપત્ર',
           propertyTaxBill: 'સંપત્તિ કર બિલ',
-          aadharcardUpdate: 'આધારકાર્ડ અપડેટ',
+          aadharCardUpdate: 'આધારકાર્ડ અપડેટ',
           revenueCollection: 'રાજસ્વ સંગ્રહ',
           supervisingBridgeDam: 'પોલ/બાંધનો પરિવેક્ષણ કરવો',
           ashantDharoCertificate: 'આશાંત ધરો પ્રમાણપત્ર',
@@ -386,7 +386,7 @@ class LocaleString extends Translations {
           educationAndHealth: 'શિક્ષા અને આરોગ્ય સંબંધિત મુદ્દાઓ',
           welfareAndDevelop: 'જનકલ્યાણ અને વિકાસ',
           foodAndCivil: 'ખોરાક અને સિવિલ સરપંચ',
-          documets:'દસ્તાવેજ કામ',
+          documents:'દસ્તાવેજ કામ',
         }
       };
 }

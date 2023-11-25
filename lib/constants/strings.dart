@@ -107,7 +107,7 @@ List<Map<String, String>> listOfCorporateSubOff = [
   {'title': birthCertificate, 'subtitle': birthCerHint},
   {'title': deathCertificate, 'subtitle': deathCerHint},
   {'title': propertyTaxBill, 'subtitle': propertyTBHint},
-  {'title': aadharcardUpdate, 'subtitle': aUpdateHint},
+  {'title': aadharCardUpdate, 'subtitle': aUpdateHint},
   {'title': revenueCollection, 'subtitle': rCHint},
   {'title': supervisingBridgeDam, 'subtitle': bridgeDHint},
 ];

@@ -36,8 +36,8 @@ class _AddComplaintsState extends State<AddComplaints> {
   final _cityName = TextEditingController();
   String selectedProb = '';
 
-  String? selectedOff;
-  String? selectedSubOff;
+  final _selectedOff = TextEditingController();
+  final _selectedSubOff = TextEditingController();
   List<Problem> probData = [];
   var _editedComplaint = ComplaintModel(
     id: '',
@@ -105,17 +105,22 @@ class _AddComplaintsState extends State<AddComplaints> {
         city: _cityName.text,
         state:
             Provider.of<UserProvider>(context, listen: false).userModel!.state!,
-        off: selectedOff!,
-        subOff: selectedSubOff!,
+        off: _selectedOff.text,
+        subOff: _selectedSubOff.text,
         dist:
             Provider.of<UserProvider>(context, listen: false).userModel!.dist!,
         status: 'pending',
         imgUrl: _editedComplaint.imgUrl,
         userId: FirebaseAuth.instance.currentUser!.uid,
         complaintId: Provider.of<UserProvider>(context, listen: false)
-            .userModel!
-            .dist!
-            .substring(0, 3),
+                .userModel!
+                .dist!
+                .substring(0, 3) +
+            Provider.of<UserProvider>(context, listen: false)
+                .userModel!
+                .name!
+                .substring(0, 3) +
+            Timestamp.now().toString().substring(0, 5),
         createdAt: Timestamp.now(),
       );
       await Provider.of<ComplaintProvider>(context, listen: false)
@@ -165,11 +170,6 @@ class _AddComplaintsState extends State<AddComplaints> {
                   vertical: 30,
                 ),
                 children: <Widget>[
-                  // customTextFormField(
-                  //     _probName,
-                  //     const Icon(LineIcons.userCircle),
-                  //     problemName,
-                  //     aadharCardAddress),
                   problemName(),
                   const Divider(
                     height: 50,
@@ -179,12 +179,10 @@ class _AddComplaintsState extends State<AddComplaints> {
                   const Divider(
                     height: 50,
                   ),
-                  const Text("Department:- "),
                   deptDropdown(),
                   const Divider(
                     height: 50,
                   ),
-                  const Text("Sub Department:- "),
                   subDeptDropdown(),
                   const Divider(
                     height: 50,
@@ -247,7 +245,7 @@ class _AddComplaintsState extends State<AddComplaints> {
               fillColor: ThemeColor.textFieldBgColor,
               filled: true,
               hintStyle: hintStyle,
-              hintText: selectOffice.tr,
+              hintText: selectProb.tr,
             ),
             isExpanded: true,
             items: probData
@@ -264,10 +262,10 @@ class _AddComplaintsState extends State<AddComplaints> {
             onChanged: (value) {
               setState(() {
                 selectedProb = value!;
-                selectedOff = probData
+                _selectedOff.text = probData
                     .firstWhere((prob) => prob.probName == selectedProb)
                     .dept;
-                selectedSubOff = probData
+                _selectedSubOff.text = probData
                     .firstWhere((prob) => prob.probName == selectedProb)
                     .subDept;
               });
@@ -283,31 +281,55 @@ class _AddComplaintsState extends State<AddComplaints> {
       children: [
         addPadding(const Icon(Icons.house)),
         Expanded(
-            child: Text(
-          selectedProb == ''
-              ? "Select Department"
-              : probData
-                  .firstWhere((prob) => prob.probName == selectedProb)
-                  .dept,
-        )),
+          child: TextFormField(
+            validator: (value) {
+              if (_selectedOff.text.isEmpty) {
+                return "This field can't be empty.";
+              }
+              return null;
+            },
+            controller: _selectedOff,
+            readOnly: true,
+            style: fieldStyle,
+            autofocus: true,
+            decoration: InputDecoration(
+                fillColor: ThemeColor.textFieldBgColor,
+                filled: true,
+                hintStyle: hintStyle,
+                labelText: selectOffice.tr),
+          ),
+        ),
       ],
     );
   }
+
   Widget subDeptDropdown() {
     return Row(
       children: [
         addPadding(const Icon(Icons.house)),
         Expanded(
-            child: Text(
-              selectedProb == ''
-                  ? "Select Department"
-                  : probData
-                  .firstWhere((prob) => prob.probName == selectedProb)
-                  .subDept,
-            )),
+          child: TextFormField(
+            validator: (value) {
+              if (_selectedSubOff.text.isEmpty) {
+                return "This field can't be empty.";
+              }
+              return null;
+            },
+            controller: _selectedSubOff,
+            readOnly: true,
+            style: fieldStyle,
+            autofocus: true,
+            decoration: InputDecoration(
+                fillColor: ThemeColor.textFieldBgColor,
+                filled: true,
+                hintStyle: hintStyle,
+                labelText: subOffice.tr),
+          ),
+        ),
       ],
     );
   }
+
   Widget submitButton() {
     return ElevatedButton(
       onPressed: () {
