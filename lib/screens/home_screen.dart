@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:complain_app/global_string.dart';
 import 'package:complain_app/provider/user_provider.dart';
 import 'package:complain_app/screens/add_complaint_screen.dart';
@@ -224,13 +225,26 @@ class _HomeScreenState extends State<HomeScreen> {
                                     shape: BoxShape.circle,
                                     color: ThemeColor.secondary),
                                 child: Center(
-                                  child: FutureBuilder(
-                                    future: getNumberOfUsers(),
+                                  child: StreamBuilder(
+                                    stream: FirebaseFirestore.instance
+                                        .collection('complaints')
+                                        .where(
+                                      'dist',
+                                      isEqualTo:
+                                      Provider.of<UserProvider>(
+                                          context)
+                                          .userModel!
+                                          .dist,
+                                    )
+                                        .where('status', whereIn: [
+                                      'pending',
+                                    ]).snapshots(),
                                     builder: (BuildContext context,
-                                        AsyncSnapshot snapshot) {
-                                      if (snapshot.hasData) {
+                                        AsyncSnapshot passed) {
+                                      if (passed.hasData) {
                                         return Text(
-                                          snapshot.data,
+                                          passed.data!.docs.length
+                                              .toString(),
                                           style: const TextStyle(
                                               fontSize: 28,
                                               fontWeight: FontWeight.bold,

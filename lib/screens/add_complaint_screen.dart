@@ -100,7 +100,7 @@ class _AddComplaintsState extends State<AddComplaints> {
       _editedComplaint.imgUrl = await storageRef.getDownloadURL();
       _editedComplaint = ComplaintModel(
         id: _editedComplaint.id,
-        probName: _probName.text,
+        probName: selectedProb,
         probDsc: _probDsc.text,
         city: _cityName.text,
         state:
