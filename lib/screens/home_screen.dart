@@ -21,22 +21,6 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  Future<String> getNumberOfUsers() async {
-    // String numberOfUsers='N';
-    return '6';
-    // return await dbReference.child('users').once().then(
-    //       (value) {
-    //     var data = value.snapshot.value;
-    //
-    //     String numberOfUsers =
-    //     Map<String, dynamic>.from(data as Map<Object?, Object?>)
-    //         .length
-    //         .toString();
-    //
-    //     return numberOfUsers;
-    //   },
-    // );
-  }
 
   @override
   void initState() {

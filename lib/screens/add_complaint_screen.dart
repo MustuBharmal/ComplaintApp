@@ -5,6 +5,7 @@ import 'package:complain_app/global_string.dart';
 import 'package:complain_app/models/complaint_model.dart';
 import 'package:complain_app/provider/complaint_provider.dart';
 import 'package:complain_app/provider/user_provider.dart';
+import 'package:dropdown_search/dropdown_search.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
@@ -122,6 +123,7 @@ class _AddComplaintsState extends State<AddComplaints> {
                 .substring(0, 3) +
             Timestamp.now().toString().substring(0, 5),
         createdAt: Timestamp.now(),
+        reason: '',
       );
       await Provider.of<ComplaintProvider>(context, listen: false)
           .addComplaintData(_editedComplaint);
@@ -240,36 +242,26 @@ class _AddComplaintsState extends State<AddComplaints> {
       children: [
         addPadding(const Icon(Icons.house)),
         Expanded(
-          child: DropdownButtonFormField(
-            decoration: InputDecoration(
-              fillColor: ThemeColor.textFieldBgColor,
-              filled: true,
-              hintStyle: hintStyle,
-              hintText: selectProb.tr,
+          child: DropdownSearch<Problem>(
+            popupProps: const PopupProps.menu(
+              showSearchBox: true,
             ),
-            isExpanded: true,
-            items: probData
-                .map(
-                  (Problem prob) => DropdownMenuItem<String>(
-                    value: prob.probName,
-                    child: Text(
-                      prob.probName,
-                      style: dropdownStyle,
-                    ),
-                  ),
-                )
-                .toList(),
-            onChanged: (value) {
+            items: probData,
+            itemAsString: (Problem prob) => prob.probName,
+            // Specify how to convert items to strings
+            onChanged: (selectedProblem) {
               setState(() {
-                selectedProb = value!;
-                _selectedOff.text = probData
-                    .firstWhere((prob) => prob.probName == selectedProb)
-                    .dept;
-                _selectedSubOff.text = probData
-                    .firstWhere((prob) => prob.probName == selectedProb)
-                    .subDept;
+                selectedProb = selectedProblem!.probName;
+                _selectedOff.text = selectedProblem.dept;
+                _selectedSubOff.text = selectedProblem.subDept;
               });
             },
+            dropdownDecoratorProps: DropDownDecoratorProps(
+              dropdownSearchDecoration: InputDecoration(
+                hintStyle: hintStyle,
+                hintText: selectProb.tr,
+              ),
+            ),
           ),
         ),
       ],
@@ -346,3 +338,34 @@ class _AddComplaintsState extends State<AddComplaints> {
     );
   }
 }
+// DropdownButtonFormField(
+// decoration: InputDecoration(
+// fillColor: ThemeColor.textFieldBgColor,
+// filled: true,
+// hintStyle: hintStyle,
+// hintText: selectProb.tr,
+// ),
+// isExpanded: true,
+// items: probData
+//     .map(
+// (Problem prob) => DropdownMenuItem<String>(
+// value: prob.probName,
+// child: Text(
+// prob.probName,
+// style: dropdownStyle,
+// ),
+// ),
+// )
+//     .toList(),
+// onChanged: (value) {
+// setState(() {
+// selectedProb = value!;
+// _selectedOff.text = probData
+//     .firstWhere((prob) => prob.probName == selectedProb)
+//     .dept;
+// _selectedSubOff.text = probData
+//     .firstWhere((prob) => prob.probName == selectedProb)
+//     .subDept;
+// });
+// },
+// ),

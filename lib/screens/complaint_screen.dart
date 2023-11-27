@@ -37,11 +37,15 @@ class ComplaintScreen extends StatelessWidget {
               offset: Offset(0, 10),
             )
           ], color: ThemeColor.white, borderRadius: BorderRadius.circular(10)),
-          padding: const EdgeInsets.only(bottom: 25,top: 10, right: 20,left: 20),
+          padding:
+              const EdgeInsets.only(bottom: 25, top: 10, right: 20, left: 20),
           child: Wrap(
             children: [
               // Positioned(right: 10.0,child: Text('9th November')),
-              Container(alignment: Alignment.topRight,child:  Text(DateFormat.yMMMMd().format(loadedData.createdAt.toDate()))),
+              Container(
+                  alignment: Alignment.topRight,
+                  child: Text(DateFormat.yMMMMd()
+                      .format(loadedData.createdAt.toDate()))),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
@@ -104,19 +108,24 @@ class ComplaintScreen extends StatelessWidget {
                       ),
                     ],
                   ),
-                  const SizedBox(height: 20 ,),
+                  const SizedBox(
+                    height: 20,
+                  ),
                   Row(
                     children: [
-                      FloatingActionButton(
-                        onPressed: () {
-                          Navigator.of(context).pushNamed(
-                            InboxScreen.routeName,
-                            arguments: loadedData.id,
-                          );
-                        },
-                        child: const Icon(Icons.messenger),
+                      if (loadedData.status != 'rejected')
+                        FloatingActionButton(
+                          onPressed: () {
+                            Navigator.of(context).pushNamed(
+                              InboxScreen.routeName,
+                              arguments: loadedData.id,
+                            );
+                          },
+                          child: const Icon(Icons.messenger),
+                        ),
+                      const SizedBox(
+                        width: 50,
                       ),
-                      const SizedBox(width: 50,),
                       Container(
                         decoration: BoxDecoration(
                           color: ThemeColor.lightGrey,
@@ -132,6 +141,34 @@ class ComplaintScreen extends StatelessWidget {
                       ),
                     ],
                   ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  if (loadedData.status == 'rejected')
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Text(
+                          'Reason:- ',
+                          style: titleStyle,
+                        ),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        TextFormField(
+                          readOnly: true,
+                          style: fieldStyle,
+                          autofocus: true,
+                          maxLines: 5,
+                          decoration: InputDecoration(
+                            fillColor: ThemeColor.textFieldBgColor,
+                            filled: true,
+                            hintStyle: hintStyle,
+                            hintText: loadedData.reason,
+                          ),
+                        ),
+                      ],
+                    ),
                 ],
               ),
             ],

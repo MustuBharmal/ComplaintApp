@@ -14,7 +14,7 @@ class ComplaintCard extends StatelessWidget {
   final Timestamp timestamp;
   final String status;
 
-  const ComplaintCard(
+  const  ComplaintCard(
     this.id,
     this.probName,
     this.probDsc,

@@ -10,18 +10,22 @@ class ComplaintProvider with ChangeNotifier {
   Future<void> fetchComplaintData() async {
     allComplaints.clear();
     final docRef = db.collection('complaints');
-    await docRef
-        .where('userId', isEqualTo: FirebaseAuth.instance.currentUser!.uid)
-        .get()
-        .then(
-      (ref) {
-        for (var element in ref.docs) {
-          allComplaints.add(ComplaintModel.fromSnapshot(element));
-        }
-      },
-      onError: (e) => print('Error getting document: $e'),
-    );
-    notifyListeners();
+
+    try {
+      var querySnapshot = await docRef
+          .where('userId', isEqualTo: FirebaseAuth.instance.currentUser!.uid)
+          .orderBy('createdAt', descending: true)
+          .get();
+
+      for (var element in querySnapshot.docs) {
+        allComplaints.add(ComplaintModel.fromSnapshot(element));
+      }
+
+      notifyListeners();
+    } catch (e) {
+      print('Error getting documents: $e');
+      // Handle the error as needed
+    }
   }
 
   Future<void> addComplaintData(ComplaintModel data) async {
